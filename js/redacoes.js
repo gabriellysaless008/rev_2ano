@@ -208,7 +208,7 @@ if (!materia) {
                 // SALVAR NO FIRESTORE
                 // ------------------------------------------
 
-                await addDoc(collection(db, "redacoes"), {
+                await addDoc(collection(db, "Sociologia"), {
 
                     autor: autor,
 
@@ -285,8 +285,8 @@ if (!materia) {
         // ----------------------------------------------
 
         const consulta = query(
-            collection(db, "redacoes"),
-            where("materia", "==", materia)
+        collection(db, "redacoes"),
+        where("materia", "==", materia)
 );
 
 
