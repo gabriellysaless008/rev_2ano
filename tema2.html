@@ -1,97 +1,282 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sociologia</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-    <header>
+<body class="pagina-sociologia">
 
-        <a class="botaoVoltar" href="index.html">
-            Voltar
-        </a>
+    <!-- ==================================================
+         CABEÇALHO
+    =================================================== -->
 
-        <h1>Sociologia</h1>
+    <header class="sociologia-header">
 
-        <p>As redações da turma</p>
+        <div class="sociologia-header-inner">
+
+            <a
+                class="sociologia-voltar"
+                href="index.html"
+            >
+                ← Voltar
+            </a>
+
+            <div class="sociologia-marca">
+
+                <div class="sociologia-icone">
+                    S
+                </div>
+
+                <div>
+                    <strong>Sociologia</strong>
+
+                    <small>
+                        CONTEÚDOS DA TURMA
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
 
     </header>
 
-    <main>
 
-        <!-- REDAÇÕES CARREGADAS PELO FIREBASE -->
+    <!-- ==================================================
+         CONTEÚDO PRINCIPAL
+    =================================================== -->
 
-        
+    <main class="sociologia-main">
+
+        <div class="sociologia-container">
+
+
+            <!-- ==================================================
+                 INTRO
+            =================================================== -->
+
+            <div class="sociologia-intro">
+
+                <span>
+                    SOCIOLOGIA
+                </span>
+
+                <h1>
+                    Conteúdos da turma
+                </h1>
+
+                <p>
+                    Podcasts e biografias relacionados
+                    aos temas estudados em Sociologia.
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PODCASTS
+            =================================================== -->
+
+            <section class="sociologia-secao">
+
+                <div class="sociologia-titulo-secao">
+
+                    <div>
+
+                        <span>
+                            ÁUDIO
+                        </span>
+
+                        <h2>
+                            Podcasts
+                        </h2>
+
+                        <p>
+                            Podcasts relacionados aos temas estudados.
+                        </p>
+
+                    </div>
+
+                    <button
+                        id="btnNovoPodcast"
+                        class="sociologia-botao"
+                        type="button"
+                    >
+                        <span>+</span>
+                        Adicionar Podcast
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="listaPodcasts"
+                    class="sociologia-lista"
+                >
+
+                    <div class="sociologia-loading">
+                        Carregando podcasts...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 BIOGRAFIAS
+            =================================================== -->
+
+            <section class="sociologia-secao">
+
+                <div class="sociologia-titulo-secao">
+
+                    <div>
+
+                        <span>
+                            PENSADORES
+                        </span>
+
+                        <h2>
+                            Biografias
+                        </h2>
+
+                        <p>
+                            Biografias de pensadores e personalidades.
+                        </p>
+
+                    </div>
+
+                    <button
+                        id="btnNovaBiografia"
+                        class="sociologia-botao"
+                        type="button"
+                    >
+                        <span>+</span>
+                        Adicionar Biografia
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="listaBiografias"
+                    class="sociologia-lista"
+                >
+
+                    <div class="sociologia-loading">
+                        Carregando biografias...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
 
     </main>
-        <!-- BOTÃO ADD -->
-    <button id="btnNovaRedacao" class="btn-add">
-        <span class="plus-icon">+</span>
-        <span>Nova Redação</span>
-    </button>
-    <!-- MODAL DE CADASTRO -->
 
-    <div id="modalRedacao" class="modal">
 
-        <div class="modal-content">
+    <!-- ==================================================
+         MODAL - NOVO PODCAST
+    =================================================== -->
 
-            <span id="fecharModal" class="fechar">
+    <div
+        id="modalPodcast"
+        class="sociologia-modal"
+    >
+
+        <div class="sociologia-modal-content">
+
+            <button
+                id="fecharPodcast"
+                class="sociologia-fechar"
+                type="button"
+                aria-label="Fechar"
+            >
                 &times;
-            </span>
+            </button>
 
-            <h2>Nova Redação</h2>
 
-            <form id="formRedacao">
+            <h2>
+                Adicionar Podcast
+            </h2>
 
-                <label for="autor">
-                    Autor
+
+            <form id="formPodcast">
+
+                <label for="autorPodcast">
+                    Autor / Apresentador
                 </label>
 
                 <input
                     type="text"
-                    id="autor"
+                    id="autorPodcast"
                     required
                 >
 
-                <label for="email">
+
+                <label for="emailPodcast">
                     Email
                 </label>
 
                 <input
                     type="email"
-                    id="email"
+                    id="emailPodcast"
                     required
                 >
 
-                <label for="titulo">
-                    Título
+
+                <label for="tituloPodcast">
+                    Título do Podcast
                 </label>
 
                 <input
                     type="text"
-                    id="titulo"
+                    id="tituloPodcast"
                     required
                 >
 
-                <label for="texto">
-                    Texto
+
+                <label for="descricaoPodcast">
+                    Descrição
                 </label>
 
                 <textarea
-                    id="texto"
-                    rows="10"
+                    id="descricaoPodcast"
+                    rows="5"
                     required
                 ></textarea>
 
+
+                <label for="arquivoPodcast">
+                    Arquivo de áudio
+                </label>
+
+                <input
+                    type="file"
+                    id="arquivoPodcast"
+                    accept="audio/*"
+                    required
+                >
+
+
+                <p class="sociologia-aviso-arquivo">
+                    Formatos recomendados: MP3, WAV ou M4A.
+                </p>
+
+
                 <button
-                    class="botao"
+                    class="sociologia-botao"
                     type="submit"
                 >
-                    Enviar Redação
+                    Adicionar Podcast
                 </button>
 
             </form>
@@ -100,38 +285,201 @@
 
     </div>
 
-    <!-- MODAL DE LEITURA -->
 
-    <div id="modalLeitura" class="modal">
+    <!-- ==================================================
+         MODAL - NOVA BIOGRAFIA
+    =================================================== -->
 
-        <div class="modal-content">
+    <div
+        id="modalBiografia"
+        class="sociologia-modal"
+    >
 
-            <span id="fecharLeitura" class="fechar">
-                &times;
-            </span>
+        <div class="sociologia-modal-content">
 
-            <h2
-                id="tituloRedacao"
-                class="titulo-redacao"
+            <button
+                id="fecharBiografia"
+                class="sociologia-fechar"
+                type="button"
+                aria-label="Fechar"
             >
+                &times;
+            </button>
+
+
+            <h2>
+                Adicionar Biografia
             </h2>
 
-            <div
-                id="textoRedacao"
-                class="texto-redacao"
-            >
-            </div>
 
-            <p
-                id="autorRedacao"
-                class="autor-redacao"
-            >
-            </p>
+            <form id="formBiografia">
+
+                <label for="nomeBiografado">
+                    Nome da pessoa
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeBiografado"
+                    required
+                >
+
+
+                <label for="autorBiografia">
+                    Autor da biografia
+                </label>
+
+                <input
+                    type="text"
+                    id="autorBiografia"
+                    required
+                >
+
+
+                <label for="emailBiografia">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="emailBiografia"
+                    required
+                >
+
+
+                <label for="tituloBiografia">
+                    Título
+                </label>
+
+                <input
+                    type="text"
+                    id="tituloBiografia"
+                    required
+                >
+
+
+                <label for="textoBiografia">
+                    Biografia
+                </label>
+
+                <textarea
+                    id="textoBiografia"
+                    rows="10"
+                    required
+                ></textarea>
+
+
+                <label for="imagemBiografia">
+                    Foto
+                </label>
+
+                <input
+                    type="file"
+                    id="imagemBiografia"
+                    accept="image/*"
+                    required
+                >
+
+
+                <p class="sociologia-aviso-arquivo">
+                    Formatos recomendados: JPG, PNG ou WEBP.
+                </p>
+
+
+                <button
+                    class="sociologia-botao"
+                    type="submit"
+                >
+                    Adicionar Biografia
+                </button>
+
+            </form>
 
         </div>
 
     </div>
 
-    <script type="module" src="js/redacoes.js"></script>
+
+    <!-- ==================================================
+         MODAL - LEITURA DA BIOGRAFIA
+    =================================================== -->
+
+    <div
+        id="modalLeituraBiografia"
+        class="sociologia-modal"
+    >
+
+        <div class="sociologia-modal-content sociologia-leitura">
+
+            <button
+                id="fecharLeituraBiografia"
+                class="sociologia-fechar"
+                type="button"
+                aria-label="Fechar"
+            >
+                &times;
+            </button>
+
+
+            <div id="conteudoBiografia"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         MODAL - LEITURA DA REDAÇÃO
+    =================================================== -->
+
+    <div
+        id="modalLeitura"
+        class="sociologia-modal"
+    >
+
+        <div class="sociologia-modal-content">
+
+            <button
+                id="fecharLeitura"
+                class="sociologia-fechar"
+                type="button"
+                aria-label="Fechar"
+            >
+                &times;
+            </button>
+
+
+            <h2
+                id="tituloRedacao"
+                class="titulo-redacao"
+            ></h2>
+
+
+            <div
+                id="textoRedacao"
+                class="texto-redacao"
+            ></div>
+
+
+            <p
+                id="autorRedacao"
+                class="autor-redacao"
+            ></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    =================================================== -->
+
+    <script
+        type="module"
+        src="js/redacoes.js"
+    ></script>
+
 </body>
+
 </html>

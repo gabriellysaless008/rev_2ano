@@ -1,58 +1,515 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Redações</title>
+
+    <title>Revista Eletrônica | Literatura & Sociedade</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>Revista eletrônica: Projeto Integrador Literatura & Sociedade</h1>
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
+    <header class="cabecalho">
+
+        <div class="container nav">
+
+            <a href="index.html" class="logo">
+
+                <span class="logo-icone">R</span>
+
+                <div>
+                    <strong>Revista Eletrônica</strong>
+                    <small>Literatura & Sociedade</small>
+                </div>
+
+            </a>
+
+
+            <nav class="menu">
+
+                <a href="#inicio">Início</a>
+
+                <a href="#sobre">Sobre</a>
+
+                <a href="#conteudos">Conteúdos</a>
+
+            </nav>
+
+
+            <a href="#conteudos" class="botao-nav">
+                Explorar conteúdos
+            </a>
+
+        </div>
+
     </header>
+
 
     <main>
 
-        <section class="tema">
-            <h2>Filosofia</h2>
+        <!-- =========================
+             INÍCIO
+        ========================== -->
 
-            <p>
-                Redações relacionadas ao primeiro tema proposto.
-            </p>
+        <section id="inicio" class="hero">
 
-            <a href="tema1.html" class="botao">
-                Acessar Filosofia
-            </a>
+            <div class="container hero-conteudo">
+
+                <div class="hero-texto">
+
+                    <span class="etiqueta">
+                        PROJETO INTEGRADOR
+                    </span>
+
+                    <h1>
+                        Literatura e Sociedade
+                        <span>em diálogo.</span>
+                    </h1>
+
+                    <p>
+                        Um espaço para reunir produções acadêmicas,
+                        biografias e podcasts desenvolvidos ao longo
+                        do projeto.
+                    </p>
+
+
+                    <div class="hero-botoes">
+
+                        <a href="#conteudos" class="botao principal">
+                            Explorar conteúdos
+                            <span>→</span>
+                        </a>
+
+                        <a href="#sobre" class="botao secundario">
+                            Conheça o projeto
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card">
+
+                    <div class="hero-card-topo">
+
+                        <span>✦</span>
+
+                        <span>
+                            Produção acadêmica
+                        </span>
+
+                    </div>
+
+
+                    <div class="hero-ilustracao">
+                        📚
+                    </div>
+
+
+                    <h3>
+                        Conhecimento,
+                        pesquisa e expressão.
+                    </h3>
+
+
+                    <p>
+                        Trabalhos desenvolvidos pelos estudantes
+                        e organizados em um único espaço digital.
+                    </p>
+
+                </div>
+
+            </div>
+
         </section>
 
-        <section class="tema">
-            <h2>Sociologia</h2>
 
-            <p>
-                Redações relacionadas ao segundo tema proposto.
-            </p>
+        <!-- =========================
+             SOBRE
+        ========================== -->
 
-            <a href="tema2.html" class="botao">
-                Acessar Sociologia
-            </a>
+        <section id="sobre" class="sobre">
+
+            <div class="container">
+
+                <div class="titulo-secao">
+
+                    <span>SOBRE</span>
+
+                    <h2>
+                        Um espaço para
+                        compartilhar conhecimento.
+                    </h2>
+
+                </div>
+
+
+                <div class="sobre-grid">
+
+                    <div class="sobre-destaque">
+
+                        <div class="icone-sobre">
+                            ✦
+                        </div>
+
+                        <h3>
+                            Literatura & Sociedade
+                        </h3>
+
+                        <p>
+                            Este projeto reúne produções desenvolvidas
+                            a partir da relação entre literatura,
+                            sociedade e diferentes formas de expressão.
+                        </p>
+
+                    </div>
+
+
+                    <div class="sobre-texto">
+
+                        <p>
+                            A Revista Eletrônica foi criada como um
+                            espaço digital para organizar e apresentar
+                            os trabalhos produzidos durante o Projeto
+                            Integrador Literatura & Sociedade.
+                        </p>
+
+                        <p>
+                            Aqui você pode conhecer diferentes
+                            produções acadêmicas, acessar conteúdos
+                            relacionados às disciplinas e explorar
+                            materiais produzidos pelos estudantes.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INFORMAÇÕES -->
+
+                <div class="informacoes">
+
+                    <div class="informacao">
+
+                        <span>01</span>
+
+                        <strong>
+                            Produções
+                        </strong>
+
+                        <p>
+                            Trabalhos acadêmicos dos estudantes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="informacao">
+
+                        <span>02</span>
+
+                        <strong>
+                            Biografias
+                        </strong>
+
+                        <p>
+                            Pesquisa e apresentação de personalidades.
+                        </p>
+
+                    </div>
+
+
+                    <div class="informacao">
+
+                        <span>03</span>
+
+                        <strong>
+                            Podcasts
+                        </strong>
+
+                        <p>
+                            Conteúdo em áudio produzido pelos alunos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
 
-        <section class="tema">
-            <h2>Literatura</h2>
 
-            <p>
-                Redações relacionadas ao terceiro tema proposto.
-            </p>
+        <!-- =========================
+             CONTEÚDOS
+        ========================== -->
 
-            <a href="tema3.html" class="botao">
-                Acessar Literatura
-            </a>
+        <section id="conteudos" class="conteudos">
+
+            <div class="container">
+
+                <div class="cabecalho-conteudos">
+
+                    <div>
+
+                        <span class="titulo-pequeno">
+                            EXPLORE
+                        </span>
+
+                        <h2>
+                            Conteúdos do projeto
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+                        Escolha uma área para acessar
+                        os trabalhos disponíveis.
+                    </p>
+
+                </div>
+
+
+                <div class="cards-materias">
+
+
+                    <!-- SOCIOLOGIA -->
+
+                    <article class="card-materia">
+
+                        <div class="card-topo">
+
+                            <span class="numero">
+                                01
+                            </span>
+
+                            <span class="icone-card">
+                                ◇
+                            </span>
+
+                        </div>
+
+
+                        <div class="card-conteudo">
+
+                            <span class="categoria">
+                                DISCIPLINA
+                            </span>
+
+                            <h3>
+                                Sociologia
+                            </h3>
+
+                            <p>
+                                Explore biografias e podcasts
+                                desenvolvidos pelos estudantes.
+                            </p>
+
+
+                            <a
+                                href="tema2.html"
+                                class="link-card"
+                            >
+                                Acessar Sociologia
+                                <span>→</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- LITERATURA -->
+
+                    <article class="card-materia">
+
+                        <div class="card-topo">
+
+                            <span class="numero">
+                                02
+                            </span>
+
+                            <span class="icone-card">
+                                ◇
+                            </span>
+
+                        </div>
+
+
+                        <div class="card-conteudo">
+
+                            <span class="categoria">
+                                DISCIPLINA
+                            </span>
+
+                            <h3>
+                                Literatura
+                            </h3>
+
+                            <p>
+                                Acesse as produções e conteúdos
+                                relacionados à literatura.
+                            </p>
+
+
+                            <a
+                                href="tema3.html"
+                                class="link-card"
+                            >
+                                Acessar Literatura
+                                <span>→</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CHAMADA FINAL
+        ========================== -->
+
+        <section class="chamada">
+
+            <div class="container chamada-conteudo">
+
+                <div>
+
+                    <span>
+                        PROJETO INTEGRADOR
+                    </span>
+
+                    <h2>
+                        Conhecimento também
+                        se constrói compartilhando.
+                    </h2>
+
+                </div>
+
+
+                <a
+                    href="#conteudos"
+                    class="botao chamada-botao"
+                >
+                    Ver conteúdos →
+                </a>
+
+            </div>
+
         </section>
 
     </main>
 
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer>
+
+        <div class="container footer-conteudo">
+
+            <div class="footer-marca">
+
+                <div class="logo">
+
+                    <span class="logo-icone">
+                        R
+                    </span>
+
+                    <div>
+                        <strong>Revista Eletrônica</strong>
+                        <small>Literatura & Sociedade</small>
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Projeto Integrador Literatura & Sociedade.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div>
+
+                    <strong>Navegação</strong>
+
+                    <a href="#inicio">
+                        Início
+                    </a>
+
+                    <a href="#sobre">
+                        Sobre
+                    </a>
+
+                    <a href="#conteudos">
+                        Conteúdos
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <strong>Disciplinas</strong>
+
+                    <a href="tema2.html">
+                        Sociologia
+                    </a>
+
+                    <a href="tema3.html">
+                        Literatura
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <span>
+                    © 2026 Revista Eletrônica
+                </span>
+
+                <span>
+                    Projeto Integrador Literatura & Sociedade
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
     <script type="module" src="js/teste.js"></script>
+
 </body>
+
 </html>

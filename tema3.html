@@ -1,51 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Literatura</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-    <header>
+<body class="pagina-literatura">
 
-        <a class="botaoVoltar" href="index.html">
-            Voltar
-        </a>
+    <!-- ==================================================
+         CABEÇALHO
+    =================================================== -->
 
-        <h1>Literatura</h1>
+    <header class="literatura-header">
 
-        <p>As redações da turma</p>
+        <div class="literatura-header-inner">
+
+            <a
+                class="literatura-voltar"
+                href="index.html"
+            >
+                ← Voltar
+            </a>
+
+            <div class="literatura-marca">
+
+                <div class="literatura-icone">
+                    L
+                </div>
+
+                <div>
+                    <strong>Literatura</strong>
+
+                    <small>
+                        REDAÇÕES DA TURMA
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
 
     </header>
 
-    <main>
 
-        <!-- REDAÇÕES CARREGADAS PELO FIREBASE -->
+    <!-- ==================================================
+         CONTEÚDO PRINCIPAL
+    =================================================== -->
 
-        <section id="listaRedacoes">
+    <main class="literatura-main">
 
-        </section>
+        <div class="literatura-container">
+
+
+            <!-- ==================================================
+                 TÍTULO
+            =================================================== -->
+
+            <div class="literatura-intro">
+
+                <span>
+                    LITERATURA
+                </span>
+
+                <h1>
+                    Redações da turma
+                </h1>
+
+                <p>
+                    Redações produzidas pelos alunos
+                    durante as atividades de Literatura.
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 LISTA DE REDAÇÕES
+            =================================================== -->
+
+            <section
+                id="listaRedacoes"
+                class="literatura-lista"
+            >
+
+                <div class="literatura-loading">
+                    Carregando redações...
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 BOTÃO NOVA REDAÇÃO
+            =================================================== -->
+
+            <div class="literatura-acoes">
+
+                <button
+                    id="btnNovaRedacao"
+                    class="literatura-botao"
+                    type="button"
+                >
+                    <span>+</span>
+                    Nova Redação
+                </button>
+
+            </div>
+
+        </div>
 
     </main>
-        <!-- BOTÃO ADD -->
-    <button id="btnNovaRedacao" class="btn-add">
-        <span class="plus-icon">+</span>
-        <span>Nova Redação</span>
-    </button>
-    <!-- MODAL DE CADASTRO -->
 
-    <div id="modalRedacao" class="modal">
 
-        <div class="modal-content">
+    <!-- ==================================================
+         MODAL - NOVA REDAÇÃO
+    =================================================== -->
 
-            <span id="fecharModal" class="fechar">
+    <div
+        id="modalRedacao"
+        class="literatura-modal"
+    >
+
+        <div class="literatura-modal-content">
+
+            <button
+                id="fecharModal"
+                class="literatura-fechar"
+                type="button"
+                aria-label="Fechar"
+            >
                 &times;
-            </span>
+            </button>
 
-            <h2>Nova Redação</h2>
+
+            <h2>
+                Nova Redação
+            </h2>
+
 
             <form id="formRedacao">
 
@@ -59,6 +155,7 @@
                     required
                 >
 
+
                 <label for="email">
                     Email
                 </label>
@@ -68,6 +165,7 @@
                     id="email"
                     required
                 >
+
 
                 <label for="titulo">
                     Título
@@ -79,6 +177,7 @@
                     required
                 >
 
+
                 <label for="texto">
                     Texto
                 </label>
@@ -89,8 +188,9 @@
                     required
                 ></textarea>
 
+
                 <button
-                    class="botao"
+                    class="literatura-botao"
                     type="submit"
                 >
                     Enviar Redação
@@ -102,15 +202,27 @@
 
     </div>
 
-    <!-- MODAL DE LEITURA -->
 
-    <div id="modalLeitura" class="modal">
+    <!-- ==================================================
+         MODAL - LEITURA
+    =================================================== -->
 
-        <div class="modal-content">
+    <div
+        id="modalLeitura"
+        class="literatura-modal"
+    >
 
-            <span id="fecharLeitura" class="fechar">
+        <div class="literatura-modal-content literatura-leitura">
+
+            <button
+                id="fecharLeitura"
+                class="literatura-fechar"
+                type="button"
+                aria-label="Fechar"
+            >
                 &times;
-            </span>
+            </button>
+
 
             <h2
                 id="tituloRedacao"
@@ -118,11 +230,13 @@
             >
             </h2>
 
+
             <div
                 id="textoRedacao"
                 class="texto-redacao"
             >
             </div>
+
 
             <p
                 id="autorRedacao"
@@ -134,6 +248,16 @@
 
     </div>
 
-    <script type="module" src="js/redacoes.js"></script>
+
+    <!-- ==================================================
+         JAVASCRIPT
+    =================================================== -->
+
+    <script
+        type="module"
+        src="js/redacoes.js"
+    ></script>
+
 </body>
+
 </html>
