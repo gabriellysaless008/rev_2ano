@@ -18,19 +18,15 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-storage.js";
 
 
-// ======================================================
-// FIREBASE
-// ======================================================
 
+// FIREBASE
 const db = getFirestore(app);
 
 const storage = getStorage(app);
 
 
-// ======================================================
-// IDENTIFICAR MATÉRIA
-// ======================================================
 
+// IDENTIFICAR MATÉRIA
 const paginas = {
     "tema2.html": "Sociologia",
     "tema3.html": "Literatura"
@@ -58,10 +54,8 @@ if (!materia) {
     );
 
 
-    // ==================================================
+    
     // ELEMENTOS
-    // ==================================================
-
     const btnNovaRedacao =
         document.getElementById("btnNovaRedacao");
 
@@ -100,9 +94,7 @@ if (!materia) {
         document.getElementById("listaBiografias");
 
 
-    // ==================================================
     // MODAIS
-    // ==================================================
 
     function abrirModal(modal) {
 
@@ -126,9 +118,7 @@ if (!materia) {
     }
 
 
-    // ==================================================
     // BOTÕES
-    // ==================================================
 
     if (btnNovaRedacao) {
 
@@ -160,9 +150,7 @@ if (!materia) {
     }
 
 
-    // ==================================================
     // FECHAR MODAIS
-    // ==================================================
 
     document
         .getElementById("fecharModal")
@@ -218,9 +206,7 @@ if (!materia) {
     );
 
 
-    // ==================================================
     // REDAÇÕES
-    // ==================================================
 
     const formRedacao =
         document.getElementById("formRedacao");
@@ -352,11 +338,7 @@ if (!materia) {
 
     }
 
-
-    // ==================================================
     // CARREGAR REDAÇÕES
-    // ==================================================
-
     if (listaRedacoes) {
 
         const consulta =
@@ -428,9 +410,7 @@ if (!materia) {
     }
 
 
-    // ==================================================
     // CARD REDAÇÃO
-    // ==================================================
 
     function criarCardRedacao(redacao) {
 
@@ -522,9 +502,7 @@ if (!materia) {
     }
 
 
-    // ==================================================
     // ABRIR REDAÇÃO
-    // ==================================================
 
     function abrirRedacao(redacao) {
 
@@ -556,10 +534,7 @@ if (!materia) {
     }
 
 
-
-    // ==================================================
     // PODCASTS
-    // ==================================================
 
     const formPodcast =
         document.getElementById(
@@ -759,9 +734,7 @@ if (!materia) {
     }
 
 
-    // ==================================================
     // CARREGAR PODCASTS
-    // ==================================================
 
     if (listaPodcasts) {
 
@@ -901,9 +874,7 @@ if (!materia) {
 
 
 
-    // ==================================================
     // BIOGRAFIAS
-    // ==================================================
 
     const formBiografia =
         document.getElementById(
@@ -1116,9 +1087,7 @@ if (!materia) {
 
 
 
-    // ==================================================
     // CARREGAR BIOGRAFIAS
-    // ==================================================
 
     if (listaBiografias) {
 
@@ -1192,9 +1161,7 @@ if (!materia) {
 
 
 
-    // ==================================================
     // CARD BIOGRAFIA
-    // ==================================================
 
     function criarCardBiografia(
         biografia
@@ -1290,10 +1257,7 @@ if (!materia) {
     }
 
 
-
-    // ==================================================
     // ABRIR BIOGRAFIA
-    // ==================================================
 
     function abrirBiografia(
         biografia
@@ -1358,9 +1322,7 @@ if (!materia) {
 
 
 
-    // ==================================================
     // PROTEGER HTML
-    // ==================================================
 
     function escaparHTML(texto) {
 
