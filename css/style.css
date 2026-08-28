@@ -571,6 +571,8 @@ a {
 }
 
 .hero-card h3 {
+    margin-top: 15px;
+    
     color: white;
 
     font-family: Georgia, serif;
@@ -585,9 +587,9 @@ a {
 .hero-card p {
     margin-top: 15px;
 
-    color: #066e7e;
+    color: #feffff;
 
-    font-size: 13px;
+    font-size: 15px;
 
     line-height: 1.7;
 }
