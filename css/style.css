@@ -8,27 +8,1296 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color: #eafcff;
+
     background: #042f4a;
+
     overflow-x: hidden;
 }
+
 
 a {
     text-decoration: none;
     color: inherit;
 }
 
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
 .container {
     width: min(1120px, 90%);
+
     margin: 0 auto;
 }
 
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.cabecalho {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 100;
+
+    background:
+        rgba(3, 45, 73, 0.78);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid
+        rgba(143, 222, 232, 0.15);
+}
+
+
+.nav {
+    min-height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.logo-icone {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(143, 225, 235, 0.5);
+
+    border-radius: 50%;
+
+    color: #8fe1eb;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.2rem;
+}
+
+
+.logo strong {
+    display: block;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+}
+
+
+.logo small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8fc4ce;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.08em;
+}
+
+
+.menu {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+.menu a {
+    position: relative;
+
+    color: #d9f5f8;
+
+    font-size: 0.85rem;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.menu a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: #76d9e5;
+
+    transition:
+        width 0.25s ease;
+}
+
+
+.menu a:hover {
+    color: #8fe1eb;
+}
+
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+
+.botao-nav {
+    padding:
+        11px 18px;
+
+    border:
+        1px solid
+        rgba(143, 225, 235, 0.4);
+
+    border-radius: 30px;
+
+    color: #8fe1eb;
+
+    font-size: 0.78rem;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.botao-nav:hover {
+    background: #35c4d8;
+
+    color: #032d49;
+}
+
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 720px;
+
+    padding-top: 150px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075879 0%,
+            #064866 45%,
+            #032d49 100%
+        );
+}
+
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    top: -300px;
+    right: -180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(53, 196, 216, 0.08);
+}
+
+
+.hero-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 550px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+.hero-texto {
+    max-width: 680px;
+}
+
+
+.etiqueta {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: #8fe1eb;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+}
+
+
+.hero h1 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 0.98;
+
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+}
+
+
+.hero h1 span {
+    display: block;
+
+    color: #76d9e5;
+}
+
+
+.hero-texto > p {
+    max-width: 620px;
+
+    margin-top: 28px;
+
+    color: #c7edf2;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+
+.hero-botoes {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 35px;
+}
+
+
+.botao {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        14px 22px;
+
+    border-radius: 30px;
+
+    font-size: 0.82rem;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.botao:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.botao.principal {
+    background: #76d9e5;
+
+    color: #032d49;
+}
+
+
+.botao.principal:hover {
+    background: #8fe1eb;
+}
+
+
+.botao.secundario {
+    border:
+        1px solid
+        rgba(143, 225, 235, 0.4);
+
+    color: #dff9fc;
+}
+
+
+.botao.secundario:hover {
+    background:
+        rgba(143, 225, 235, 0.08);
+}
+
+
+
+/* =========================================================
+   HERO CARD
+========================================================= */
+
+.hero-card {
+    position: relative;
+
+    padding: 45px;
+
+    border:
+        1px solid
+        rgba(143, 225, 235, 0.2);
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    backdrop-filter:
+        blur(12px);
+
+    overflow: hidden;
+}
+
+
+.hero-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    top: -140px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(118, 217, 229, 0.1);
+}
+
+
+.hero-card-topo {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #8fe1eb;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.08em;
+}
+
+
+.hero-card h3 {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 55px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 2.1rem;
+
+    line-height: 1.2;
+
+    font-weight: 400;
+}
+
+
+.hero-card p {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 20px;
+
+    color: #bde5ea;
+
+    line-height: 1.7;
+}
+
+
+
+/* =========================================================
+   SOBRE
+========================================================= */
+
+.sobre {
+    position: relative;
+
+    padding:
+        110px 0;
+
+    background: #f1fafb;
+
+    color: #073b50;
+}
+
+
+.titulo-secao {
+    max-width: 700px;
+
+    margin-bottom: 65px;
+}
+
+
+.titulo-secao > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #139fbb;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+}
+
+
+.titulo-secao h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2.2rem, 4vw, 3.6rem);
+
+    line-height: 1.1;
+
+    font-weight: 400;
+}
+
+
+.sobre-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
+    gap: 80px;
+
+    align-items: start;
+}
+
+
+.sobre-destaque {
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background:
+        #e2f3f6;
+
+    border:
+        1px solid
+        rgba(19, 159, 187, 0.12);
+}
+
+
+.icone-sobre {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+
+    background: #075879;
+
+    color: #8fe1eb;
+}
+
+
+.sobre-destaque h3 {
+    margin-bottom: 15px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.7rem;
+
+    font-weight: 400;
+}
+
+
+.sobre-destaque p {
+    color: #517381;
+
+    line-height: 1.8;
+}
+
+
+.sobre-texto p {
+    color: #4c6d78;
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+}
+
+
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.informacoes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 35px;
+
+    margin-top: 85px;
+
+    padding-top: 45px;
+
+    border-top:
+        1px solid
+        rgba(7, 59, 80, 0.15);
+}
+
+
+.informacao {
+    min-width: 0;
+}
+
+
+.informacao > span {
+    display: block;
+
+    margin-bottom: 17px;
+
+    color: #139fbb;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+
+.informacao strong {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.5rem;
+
+    font-weight: 400;
+}
+
+
+.informacao p {
+    color: #6b8992;
+
+    font-size: 0.82rem;
+
+    line-height: 1.6;
+}
+
+
+
+/* =========================================================
+   CONTEÚDOS
+========================================================= */
+
+.conteudos {
+    padding:
+        110px 0;
+
+    background:
+        #042f4a;
+}
+
+
+.cabecalho-conteudos {
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    margin-bottom: 50px;
+}
+
+
+.titulo-pequeno {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #76d9e5;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+}
+
+
+.cabecalho-conteudos h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 3rem;
+
+    font-weight: 400;
+}
+
+
+.cabecalho-conteudos > p {
+    max-width: 360px;
+
+    color: #a9d6dd;
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+
+
+/* =========================================================
+   CARDS DAS MATÉRIAS
+========================================================= */
+
+.cards-materias {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+.card-materia {
+    position: relative;
+
+    min-height: 350px;
+
+    padding: 32px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(143, 225, 235, 0.16);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #075879,
+            #043c59
+        );
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.card-materia:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(143, 225, 235, 0.4);
+}
+
+
+.card-topo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.numero {
+    color: #76d9e5;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.icone-card {
+    color: #76d9e5;
+
+    font-size: 1.2rem;
+}
+
+
+.card-conteudo {
+    margin-top: 70px;
+}
+
+
+.categoria {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #7bc8d3;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+}
+
+
+.card-conteudo h3 {
+    margin-bottom: 15px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 2.2rem;
+
+    font-weight: 400;
+}
+
+
+.card-conteudo p {
+    max-width: 400px;
+
+    color: #b5dfe5;
+
+    line-height: 1.7;
+}
+
+
+.link-card {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    color: #8fe1eb;
+
+    font-size: 0.82rem;
+
+    transition:
+        gap 0.2s ease;
+}
+
+
+.link-card:hover {
+    gap: 15px;
+}
+
+
+
+/* =========================================================
+   CHAMADA FINAL
+========================================================= */
+
+.chamada {
+    padding:
+        90px 0;
+
+    background:
+        #063b50;
+}
+
+
+.chamada-conteudo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+
+.chamada-conteudo > div > span {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: #76d9e5;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+}
+
+
+.chamada h2 {
+    max-width: 700px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2rem, 4vw, 3.3rem);
+
+    line-height: 1.1;
+
+    font-weight: 400;
+}
+
+
+.chamada-botao {
+    flex-shrink: 0;
+
+    background: #76d9e5;
+
+    color: #032d49;
+}
+
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+footer {
+    background: #032d49;
+
+    color: #c5e8ed;
+}
+
+
+.footer-conteudo {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 70px;
+
+    padding:
+        65px 0;
+}
+
+
+.footer-marca {
+    max-width: 400px;
+}
+
+
+.footer-marca > p {
+    margin-top: 20px;
+
+    color: #80aeb8;
+
+    font-size: 0.8rem;
+
+    line-height: 1.6;
+}
+
+
+.footer-links {
+    display: flex;
+
+    gap: 90px;
+}
+
+
+.footer-links > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.footer-links strong {
+    margin-bottom: 5px;
+
+    color: #eafcff;
+
+    font-size: 0.78rem;
+}
+
+
+.footer-links a {
+    color: #80aeb8;
+
+    font-size: 0.78rem;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.footer-links a:hover {
+    color: #8fe1eb;
+}
+
+
+.footer-bottom {
+    border-top:
+        1px solid
+        rgba(143, 225, 235, 0.1);
+}
+
+
+.footer-bottom .container {
+    min-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #648e99;
+
+    font-size: 0.68rem;
+}
+
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .menu {
+        display: none;
+    }
+
+
+    .hero-conteudo {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .hero {
+        padding-top: 130px;
+    }
+
+
+    .hero-card {
+        max-width: 600px;
+    }
+
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+
+    .informacoes {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        row-gap: 45px;
+    }
+
+
+    .cabecalho-conteudos {
+        align-items: start;
+
+        flex-direction: column;
+    }
+
+
+    .footer-conteudo {
+        flex-direction: column;
+    }
+
+}
+
+
+
+@media (max-width: 650px) {
+
+
+    .nav {
+        min-height: 70px;
+    }
+
+
+    .botao-nav {
+        display: none;
+    }
+
+
+    .hero {
+        min-height: auto;
+
+        padding:
+            120px 0 80px;
+    }
+
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+
+    .hero-botoes {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .botao {
+        text-align: center;
+    }
+
+
+    .hero-card {
+        padding: 30px;
+    }
+
+
+    .hero-card h3 {
+        margin-top: 40px;
+
+        font-size: 1.8rem;
+    }
+
+
+    .sobre,
+    .conteudos {
+        padding:
+            75px 0;
+    }
+
+
+    .titulo-secao h2,
+    .cabecalho-conteudos h2 {
+        font-size: 2.3rem;
+    }
+
+
+    .informacoes {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin-top: 60px;
+    }
+
+
+    .cards-materias {
+        grid-template-columns: 1fr;
+    }
+
+
+    .card-materia {
+        min-height: 320px;
+    }
+
+
+    .chamada {
+        padding:
+            70px 0;
+    }
+
+
+    .chamada-conteudo {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .footer-links {
+        gap: 50px;
+    }
+
+
+    .footer-bottom .container {
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: flex-start;
+
+        padding:
+            20px 0;
+    }
+
+}
+
+
+
+@media (max-width: 420px) {
+
+
+    .container {
+        width: min(100% - 36px, 1120px);
+    }
+
+
+    .logo small {
+        display: none;
+    }
+
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+
+    .sobre-destaque {
+        padding: 28px;
+    }
+
+
+    .card-materia {
+        padding: 25px;
+    }
+
+
+    .footer-links {
+        flex-direction: column;
+
+        gap: 35px;
+    }
+
+}
 
 /* =========================================================
    CABEÇALHO
@@ -6200,3 +7469,4 @@ input[type="file"] {
     }
 
 }
+

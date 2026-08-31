@@ -1374,7 +1374,7 @@ if (!materia) {
 
                             <span class="alunos-icone">
 
-                                👥
+                                
 
                             </span>
 
