@@ -2649,3 +2649,434 @@ if (!materia) {
     }
 
 }
+
+// ======================================================
+// CARROSSEL DE VÍDEOS - SOCIOLOGIA
+// ======================================================
+
+
+const carrosselTrack =
+    document.getElementById("carrosselTrack");
+
+const carrosselIndicadores =
+    document.querySelectorAll(".carrossel-indicador");
+
+const btnAnterior =
+    document.getElementById("btnAnterior");
+
+const btnProximo =
+    document.getElementById("btnProximo");
+
+const slides =
+    document.querySelectorAll(".carrossel-slide");
+
+
+let indiceAtual = 0;
+
+
+// ======================================================
+// ATUALIZAR CARROSSEL
+// ======================================================
+
+function atualizarCarrossel() {
+
+    if (!carrosselTrack || slides.length === 0) {
+        return;
+    }
+
+
+    // Move os slides
+
+    carrosselTrack.style.transform =
+        `translateX(-${indiceAtual * 100}%)`;
+
+
+    // Atualiza indicadores
+
+    carrosselIndicadores.forEach(
+        (indicador, indice) => {
+
+            indicador.classList.toggle(
+                "ativo",
+                indice === indiceAtual
+            );
+
+        }
+    );
+
+
+    // Desabilita botão anterior no primeiro slide
+
+    if (btnAnterior) {
+
+        btnAnterior.disabled =
+            indiceAtual === 0;
+
+    }
+
+
+    // Desabilita botão próximo no último slide
+
+    if (btnProximo) {
+
+        btnProximo.disabled =
+            indiceAtual === slides.length - 1;
+
+    }
+
+}
+
+
+// ======================================================
+// BOTÃO ANTERIOR
+// ======================================================
+
+if (btnAnterior) {
+
+    btnAnterior.addEventListener(
+        "click",
+        () => {
+
+            if (indiceAtual > 0) {
+
+                indiceAtual--;
+
+                atualizarCarrossel();
+
+            }
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// BOTÃO PRÓXIMO
+// ======================================================
+
+if (btnProximo) {
+
+    btnProximo.addEventListener(
+        "click",
+        () => {
+
+            if (
+                indiceAtual <
+                slides.length - 1
+            ) {
+
+                indiceAtual++;
+
+                atualizarCarrossel();
+
+            }
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// INDICADORES
+// ======================================================
+
+carrosselIndicadores.forEach(
+    (indicador, indice) => {
+
+        indicador.addEventListener(
+            "click",
+            () => {
+
+                indiceAtual = indice;
+
+                atualizarCarrossel();
+
+            }
+        );
+
+    }
+);
+
+
+// ======================================================
+// TECLADO
+// ======================================================
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key === "ArrowLeft") {
+
+            if (indiceAtual > 0) {
+
+                indiceAtual--;
+
+                atualizarCarrossel();
+
+            }
+
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+            if (
+                indiceAtual <
+                slides.length - 1
+            ) {
+
+                indiceAtual++;
+
+                atualizarCarrossel();
+
+            }
+
+        }
+
+    }
+);
+
+
+// ======================================================
+// INICIAR
+// ======================================================
+
+atualizarCarrossel();
+
+// ======================================================
+// CARROSSEL DE VÍDEOS - SOCIOLOGIA
+// ======================================================
+
+const videosSociologia = [
+    {
+        titulo: "Juliane Furno",
+        alunos: "Ketelyn, Gabrielly e Sebastian",
+        descricao: "Trabalho produzido pelos alunos sobre Juliane Furno.",
+        url: "https://youtu.be/GoNvmioRuOs?si=aPJPedRUYcT9juIk"
+    },
+
+    {
+        titulo: "Eliane Potiguara",
+        alunos: "Samuel, Rafael, Isabela Guth e Lucas",
+        descricao: "Trabalho produzido pelos alunos sobre Eliane Potiguara.",
+        url: "https://youtu.be/skVPiTBKRW0?si=OXmm8FUkepHFFdN3"
+    },
+
+    {
+        titulo: "Natalia Pasternak",
+        alunos: "Vitor Pasternakk, David e Caio",
+        descricao: "Trabalho produzido pelos alunos sobre Natalia Pasternak.",
+        url: "https://youtu.be/nDhLE-SJPZY?si=zAr1rCiylk5O2OSZ"
+    },
+
+    {
+        titulo: "Leandro Karnal",
+        alunos: "Brendha, Julia Balan e Luiz Eduardo",
+        descricao: "Trabalho produzido pelos alunos sobre Leandro Karnal.",
+        url: "https://youtu.be/0X72ycTla_8?si=nH5S2qVUG-nZbqyN"
+    },
+
+    {
+        titulo: "Marielle Franco",
+        alunos: "Alicia, Guilherme Bueno e Vitor Livina",
+        descricao: "Trabalho produzido pelos alunos sobre Marielle Franco.",
+        url: "https://youtu.be/N3mLERzPAlM?si=ULsBpA4I8SH2RHvA"
+    }
+];
+
+
+const carrosselVideosTrack =
+    document.getElementById("carrosselVideosTrack");
+
+const carrosselVideosIndicadores =
+    document.getElementById("carrosselVideosIndicadores");
+
+const btnVideoAnterior =
+    document.getElementById("btnVideoAnterior");
+
+const btnVideoProximo =
+    document.getElementById("btnVideoProximo");
+
+
+if (
+    carrosselVideosTrack &&
+    carrosselVideosIndicadores &&
+    btnVideoAnterior &&
+    btnVideoProximo
+) {
+
+    let indiceVideoAtual = 0;
+
+
+    function criarCarrosselVideos() {
+
+        carrosselVideosTrack.innerHTML = "";
+        carrosselVideosIndicadores.innerHTML = "";
+
+
+        videosSociologia.forEach((video, indice) => {
+
+            const slide =
+                document.createElement("article");
+
+            slide.className =
+                "carrossel-slide";
+
+
+            slide.innerHTML = `
+
+                <div class="card-video">
+
+                    <div class="card-video-topo">
+
+                        <span class="card-video-numero">
+                            VÍDEO ${String(indice + 1).padStart(2, "0")}
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-video-conteudo">
+
+                        <span class="card-video-label">
+                            TRABALHO DA TURMA
+                        </span>
+
+                        <h3>
+                            ${video.titulo}
+                        </h3>
+
+                        <p class="card-video-alunos">
+                            ${video.alunos}
+                        </p>
+
+                        <div class="card-video-linha"></div>
+
+                        <p class="card-video-descricao">
+                            ${video.descricao}
+                        </p>
+
+                        <a
+                            href="${video.url}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="video-youtube"
+                        >
+                            <span>▶</span>
+                            Assistir no YouTube
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            carrosselVideosTrack.appendChild(slide);
+
+
+            const indicador =
+                document.createElement("button");
+
+            indicador.type = "button";
+
+            indicador.className =
+                "carrossel-indicador";
+
+            indicador.setAttribute(
+                "aria-label",
+                `Ir para o vídeo ${indice + 1}`
+            );
+
+
+            indicador.addEventListener("click", () => {
+
+                indiceVideoAtual = indice;
+
+                atualizarCarrosselVideos();
+
+            });
+
+
+            carrosselVideosIndicadores.appendChild(
+                indicador
+            );
+
+        });
+
+
+        atualizarCarrosselVideos();
+
+    }
+
+
+    function atualizarCarrosselVideos() {
+
+        carrosselVideosTrack.style.transform =
+            `translateX(-${indiceVideoAtual * 100}%)`;
+
+
+        const indicadores =
+            carrosselVideosIndicadores.querySelectorAll(
+                ".carrossel-indicador"
+            );
+
+
+        indicadores.forEach((indicador, indice) => {
+
+            indicador.classList.toggle(
+                "ativo",
+                indice === indiceVideoAtual
+            );
+
+        });
+
+
+        btnVideoAnterior.disabled =
+            indiceVideoAtual === 0;
+
+
+        btnVideoProximo.disabled =
+            indiceVideoAtual ===
+            videosSociologia.length - 1;
+
+    }
+
+
+    btnVideoAnterior.addEventListener("click", () => {
+
+        if (indiceVideoAtual > 0) {
+
+            indiceVideoAtual--;
+
+            atualizarCarrosselVideos();
+
+        }
+
+    });
+
+
+    btnVideoProximo.addEventListener("click", () => {
+
+        if (
+            indiceVideoAtual <
+            videosSociologia.length - 1
+        ) {
+
+            indiceVideoAtual++;
+
+            atualizarCarrosselVideos();
+
+        }
+
+    });
+
+
+    criarCarrosselVideos();
+
+}
