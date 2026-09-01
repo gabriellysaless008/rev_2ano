@@ -8126,3 +8126,1021 @@ input[type="file"] {
 
 }
 
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #042f4a;
+    color: #eafcff;
+    overflow-x: hidden;
+}
+
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   PÁGINA SOCIOLOGIA
+===================================================== */
+
+.pagina-sociologia {
+    min-height: 100vh;
+    background: #042f4a;
+    color: #eafcff;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.sociologia-header {
+    position: relative;
+
+    padding: 25px 7%;
+
+    background: #064866;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+}
+
+
+.sociologia-header-conteudo {
+    width: min(1100px, 90%);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   VOLTAR
+===================================================== */
+
+.sociologia-voltar {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 11px 17px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    border-radius: 9px;
+
+    color: white;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+
+.sociologia-voltar:hover {
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =====================================================
+   MARCA
+===================================================== */
+
+.sociologia-marca {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-left: auto;
+}
+
+
+.sociologia-marca > div:last-child {
+    text-align: right;
+}
+
+
+.sociologia-marca span {
+    display: block;
+
+    color: #76d9e5;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.sociologia-marca h1 {
+    margin-top: 5px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: normal;
+}
+
+
+.sociologia-icone {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #35c4d8;
+
+    color: #042f4a;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 26px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.sociologia-main {
+    width: min(1100px, 90%);
+
+    margin: 0 auto;
+
+    padding-bottom: 100px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.sociologia-hero {
+    padding: 90px 0 70px;
+}
+
+
+.sociologia-label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: #76d9e5;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.sociologia-hero h2 {
+    margin-bottom: 15px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(42px, 7vw, 72px);
+
+    font-weight: normal;
+
+    line-height: 1;
+}
+
+
+.sociologia-hero p {
+    max-width: 650px;
+
+    color: #b8dce3;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.sociologia-secao {
+    margin-top: 35px;
+
+    padding: 45px 0;
+}
+
+
+.sociologia-titulo-secao {
+    margin-bottom: 35px;
+}
+
+
+.sociologia-titulo-secao span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #76d9e5;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.sociologia-titulo-secao h2 {
+    margin-bottom: 10px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 35px;
+
+    font-weight: normal;
+}
+
+
+.sociologia-titulo-secao p {
+    max-width: 650px;
+
+    color: #b8dce3;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   CARROSSEL
+===================================================== */
+
+.carrossel {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+
+.carrossel-viewport {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+}
+
+
+.carrossel-track {
+    display: flex;
+
+    width: 100%;
+
+    transition:
+        transform 0.45s ease;
+}
+
+
+.carrossel-slide {
+    min-width: 100%;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   BOTÕES DO CARROSSEL
+===================================================== */
+
+.carrossel-btn {
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    border-radius: 50%;
+
+    background: #075879;
+
+    color: #eafcff;
+
+    cursor: pointer;
+
+    font-size: 22px;
+
+    transition: 0.2s ease;
+}
+
+
+.carrossel-btn:hover:not(:disabled) {
+    background: #35c4d8;
+
+    color: #042f4a;
+
+    transform:
+        translateY(-2px);
+}
+
+
+.carrossel-btn:disabled {
+    opacity: 0.3;
+
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   CARD DE VÍDEO
+===================================================== */
+
+.card-video {
+    min-height: 350px;
+
+    padding: 45px;
+
+    border:
+        1px solid
+        rgba(143, 225, 235, 0.15);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #075879,
+            #043c59
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+.card-video-topo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+
+.card-video-numero {
+    color: #76d9e5;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.card-video-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #76d9e5;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.card-video h3 {
+    margin-bottom: 12px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+    color: white;
+}
+
+
+.card-video-alunos {
+    color: #c5eaf0;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+.card-video-linha {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 25px 0;
+
+    background:
+        rgba(143, 225, 235, 0.15);
+}
+
+
+.card-video-descricao {
+    color: #b8dce3;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   BOTÃO YOUTUBE
+===================================================== */
+
+.video-youtube {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    padding: 15px 24px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #35c4d8;
+
+    color: #042f4a;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.video-youtube:hover {
+    transform:
+        translateY(-3px);
+
+    background: #76d9e5;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.youtube-icone {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #042f4a;
+
+    color: #35c4d8;
+
+    font-size: 10px;
+}
+
+
+.youtube-texto {
+    white-space: nowrap;
+}
+
+
+.youtube-seta {
+    font-size: 16px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.video-youtube:hover .youtube-seta {
+    transform:
+        translate(2px, -2px);
+}
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+.carrossel-indicadores {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 22px;
+}
+
+
+.carrossel-indicador {
+    width: 8px;
+    height: 8px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.3);
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.carrossel-indicador.ativo {
+    width: 24px;
+
+    border-radius: 10px;
+
+    background: #35c4d8;
+}
+
+
+/* =====================================================
+   BIOGRAFIAS
+===================================================== */
+
+.sociologia-biografias {
+    margin-top: 50px;
+
+    padding-top: 60px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+}
+
+
+.biografias-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+
+    margin-top: 40px;
+}
+
+
+/* =====================================================
+   CARD BIOGRAFIA
+===================================================== */
+
+.card-biografia {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 330px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(143, 225, 235, 0.15);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #075879,
+            #043c59
+        );
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.card-biografia:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(143, 225, 235, 0.4);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.2);
+}
+
+
+/* =====================================================
+   NÚMERO
+===================================================== */
+
+.biografia-numero {
+    position: absolute;
+
+    top: 24px;
+    right: 28px;
+
+    color:
+        rgba(143, 225, 235, 0.25);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 2.8rem;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.biografia-label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: #76d9e5;
+
+    font-size: 0.68rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.18em;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.card-biografia h3 {
+    max-width: 80%;
+
+    margin-bottom: 20px;
+
+    color: #ffffff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 2rem;
+
+    font-weight: normal;
+
+    line-height: 1.1;
+}
+
+
+/* =====================================================
+   LINHA
+===================================================== */
+
+.biografia-linha {
+    width: 100%;
+
+    height: 1px;
+
+    margin-bottom: 20px;
+
+    background:
+        rgba(143, 225, 235, 0.14);
+}
+
+
+/* =====================================================
+   ALUNOS
+===================================================== */
+
+.biografia-alunos {
+    color: #b8dce3;
+
+    font-size: 0.86rem;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   BOTÃO DA BIOGRAFIA
+===================================================== */
+
+.biografia-botao {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    width: 100%;
+
+    margin-top: auto;
+
+    padding: 14px 20px;
+
+    border-radius: 12px;
+
+    background: #35c4d8;
+
+    color: #042f4a;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.biografia-botao:hover {
+    transform:
+        translateY(-3px);
+
+    background: #76d9e5;
+
+    color: #042f4a;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.biografia-botao span:last-child {
+    font-size: 17px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.biografia-botao:hover span:last-child {
+    transform:
+        translateX(4px);
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .sociologia-header-conteudo {
+        width: 100%;
+    }
+
+
+    .biografias-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .card-video {
+        padding: 35px;
+    }
+
+
+    .card-video h3 {
+        font-size: 32px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sociologia-header {
+        padding: 20px;
+    }
+
+
+    .sociologia-header-conteudo {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .sociologia-marca {
+        width: 100%;
+
+        margin-left: 0;
+
+        justify-content: space-between;
+    }
+
+
+    .sociologia-marca > div:last-child {
+        text-align: left;
+    }
+
+
+    .sociologia-main {
+        width: 90%;
+    }
+
+
+    .sociologia-hero {
+        padding: 60px 0 45px;
+    }
+
+
+    .sociologia-hero h2 {
+        font-size: 48px;
+    }
+
+
+    .sociologia-titulo-secao h2 {
+        font-size: 30px;
+    }
+
+
+    .carrossel {
+        gap: 8px;
+    }
+
+
+    .carrossel-btn {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+
+    .card-video {
+        min-height: 350px;
+
+        padding: 28px 22px;
+    }
+
+
+    .card-video h3 {
+        font-size: 29px;
+    }
+
+
+    .video-youtube {
+        width: 100%;
+
+        padding: 14px 16px;
+    }
+
+
+    .card-biografia {
+        min-height: 300px;
+
+        padding: 25px;
+    }
+
+
+    .card-biografia h3 {
+        font-size: 1.75rem;
+    }
+
+
+    .biografia-numero {
+        top: 20px;
+        right: 22px;
+
+        font-size: 2.3rem;
+    }
+
+}
+

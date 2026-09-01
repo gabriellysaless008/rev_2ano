@@ -2,30 +2,43 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sociologia</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="css/style.css">
+    <title>Sociologia | Revista Eletrônica</title>
+
+    <!-- CSS PRINCIPAL -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body class="pagina-sociologia">
 
-    <!-- ==================================================
+
+    <!-- =====================================================
          CABEÇALHO
-    =================================================== -->
+    ====================================================== -->
 
     <header class="sociologia-header">
 
-        <div class="sociologia-header-inner">
+        <div class="sociologia-header-conteudo">
 
             <a
-                class="sociologia-voltar"
                 href="index.html"
+                class="sociologia-voltar"
             >
                 ← Voltar
             </a>
+
 
             <div class="sociologia-marca">
 
@@ -34,11 +47,15 @@
                 </div>
 
                 <div>
-                    <strong>Sociologia</strong>
 
-                    <small>
-                        CONTEÚDOS DA TURMA
-                    </small>
+                    <span>
+                        REVISTA ELETRÔNICA
+                    </span>
+
+                    <h1>
+                        Sociologia
+                    </h1>
+
                 </div>
 
             </div>
@@ -48,453 +65,588 @@
     </header>
 
 
-    <!-- ==================================================
+
+    <!-- =====================================================
          CONTEÚDO PRINCIPAL
-    =================================================== -->
+    ====================================================== -->
 
     <main class="sociologia-main">
 
-        <div class="sociologia-container">
+
+        <!-- =================================================
+             INTRODUÇÃO
+        ================================================== -->
+
+        <section class="sociologia-hero">
+
+            <span class="sociologia-label">
+                PROJETO INTEGRADOR
+            </span>
+
+            <h2>
+                Sociologia
+            </h2>
+
+            <p>
+                Redações, vídeos e biografias produzidos
+                pelos alunos da turma.
+            </p>
+
+        </section>
 
 
-            <!-- ==================================================
-                 INTRODUÇÃO
-            =================================================== -->
 
-            <div class="sociologia-intro">
+        <!-- =================================================
+             VÍDEOS
+        ================================================== -->
 
-                <span>
-                    SOCIOLOGIA
-                </span>
+        <section class="sociologia-secao">
 
-                <h1>
-                    Conteúdos da turma
-                </h1>
 
-                <p>
-                    Vídeos produzidos pelos alunos sobre
-                    diferentes personalidades e temas estudados.
-                </p>
+            <div class="sociologia-titulo-secao">
+
+                <div>
+
+                    <span>
+                        VÍDEOS
+                    </span>
+
+                    <h2>
+                        Trabalhos da turma
+                    </h2>
+
+                    <p>
+                        Confira os vídeos produzidos pelos alunos.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- ==================================================
-                 VÍDEOS
-            =================================================== -->
+            <!-- CARROSSEL -->
 
-            <section class="sociologia-secao">
+            <div class="carrossel">
 
-                <div class="sociologia-titulo-secao">
 
-                    <div>
+                <button
+                    id="btnVideoAnterior"
+                    class="carrossel-btn carrossel-btn-anterior"
+                    type="button"
+                    aria-label="Vídeo anterior"
+                >
+                    ←
+                </button>
 
+
+                <div class="carrossel-viewport">
+
+                    <div
+                        id="carrosselVideosTrack"
+                        class="carrossel-track"
+                    ></div>
+
+                </div>
+
+
+                <button
+                    id="btnVideoProximo"
+                    class="carrossel-btn carrossel-btn-proximo"
+                    type="button"
+                    aria-label="Próximo vídeo"
+                >
+                    →
+                </button>
+
+
+            </div>
+
+
+            <!-- INDICADORES -->
+
+            <div
+                id="carrosselVideosIndicadores"
+                class="carrossel-indicadores"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             BIOGRAFIAS
+        ================================================== -->
+
+        <section
+            class="sociologia-secao sociologia-biografias"
+        >
+
+
+            <div class="sociologia-titulo-secao">
+
+                <div>
+
+                    <span>
+                        BIOGRAFIAS
+                    </span>
+
+                    <h2>
+                        Trabalhos da turma
+                    </h2>
+
+                    <p>
+                        Conheça os trabalhos produzidos pelos
+                        alunos sobre diferentes personalidades.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 GRID
+            ================================================== -->
+
+            <div class="biografias-grid">
+
+
+                <!-- 01 -->
+
+                <article class="card-biografia">
+
+                    <span class="biografia-numero">
+                        01
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Marielle Franco
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Alícia Valentina Martins da Cruz<br>
+                        Guilherme Bueno Farias
+                    </p>
+
+                    <a
+                        href="https://drive.google.com/file/d/196_3vgLV84kQLTxzky8bWZHm5UeacrKw/view?usp=drivesdk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
+                    >
                         <span>
-                            VÍDEOS
+                            Ver trabalho
                         </span>
 
-                        <h2>
-                            Trabalhos da turma
-                        </h2>
+                        <span>
+                            →
+                        </span>
+                    </a>
 
-                        <p>
-                            Confira os vídeos produzidos pelos alunos.
-                        </p>
-
-                    </div>
-
-                </div>
+                </article>
 
 
-                <!-- ==================================================
-                     CARROSSEL
-                =================================================== -->
 
-                <div class="carrossel">
+                <!-- 02 -->
 
-                    <!-- BOTÃO ANTERIOR -->
+                <article class="card-biografia">
 
-                    <button
-                        id="btnAnterior"
-                        class="carrossel-btn carrossel-btn-anterior"
-                        type="button"
-                        aria-label="Vídeo anterior"
+                    <span class="biografia-numero">
+                        02
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Nísia Floresta
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Isabella Cabral Wengrat
+                    </p>
+
+                    <a
+                        href="https://drive.google.com/file/d/1GX3ckjcrVQf0XF-_PlhTU1CHU0T28bP5/view?usp=drivesdk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
                     >
-                        ←
-                    </button>
+                        <span>
+                            Ver trabalho
+                        </span>
 
+                        <span>
+                            →
+                        </span>
+                    </a>
 
-                    <!-- ÁREA VISÍVEL -->
+                </article>
 
-                    <div class="carrossel-viewport">
 
-                        <div
-                            id="carrosselTrack"
-                            class="carrossel-track"
-                        >
 
+                <!-- 03 -->
 
-                            <!-- ==================================================
-                                 VÍDEO 1
-                            =================================================== -->
+                <article class="card-biografia">
 
-                            <article class="carrossel-slide">
+                    <span class="biografia-numero">
+                        03
+                    </span>
 
-                                <div class="card-video">
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
 
-                                    <div class="card-video-topo">
+                    <h3>
+                        Nísia Floresta
+                    </h3>
 
-                                        <span class="card-video-numero">
-                                            VÍDEO 01
-                                        </span>
+                    <div class="biografia-linha"></div>
 
-                                    </div>
+                    <p class="biografia-alunos">
+                        Nathaly Peixoto Silva
+                    </p>
 
-
-                                    <div class="card-video-conteudo">
-
-                                        <span class="card-video-label">
-                                            TRABALHO DA TURMA
-                                        </span>
-
-                                        <h3>
-                                            Juliane Furno
-                                        </h3>
-
-                                        <p class="card-video-alunos">
-                                            Ketelyn, Gabrielly e Sebastian
-                                        </p>
-
-                                        <div class="card-video-linha"></div>
-
-                                        <p class="card-video-descricao">
-                                            Trabalho produzido pelos alunos
-                                            sobre Juliane Furno.
-                                        </p>
-
-
-                                        <a
-                                            href="https://youtu.be/GoNvmioRuOs?si=aPJPedRUYcT9juIk"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="video-youtube"
-                                        >
-                                            <span>▶</span>
-                                            Assistir no YouTube
-                                            <span>↗</span>
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- ==================================================
-                                 VÍDEO 2
-                            =================================================== -->
-
-                            <article class="carrossel-slide">
-
-                                <div class="card-video">
-
-                                    <div class="card-video-topo">
-
-                                        <span class="card-video-numero">
-                                            VÍDEO 02
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="card-video-conteudo">
-
-                                        <span class="card-video-label">
-                                            TRABALHO DA TURMA
-                                        </span>
-
-                                        <h3>
-                                            Eliane Potiguara
-                                        </h3>
-
-                                        <p class="card-video-alunos">
-                                            Samuel, Rafael, Isabela Guth e Lucas
-                                        </p>
-
-                                        <div class="card-video-linha"></div>
-
-                                        <p class="card-video-descricao">
-                                            Trabalho produzido pelos alunos
-                                            sobre Eliane Potiguara.
-                                        </p>
-
-
-                                        <a
-                                            href="https://youtu.be/skVPiTBKRW0?si=OXmm8FUkepHFFdN3"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="video-youtube"
-                                        >
-                                            <span>▶</span>
-                                            Assistir no YouTube
-                                            <span>↗</span>
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- ==================================================
-                                 VÍDEO 3
-                            =================================================== -->
-
-                            <article class="carrossel-slide">
-
-                                <div class="card-video">
-
-                                    <div class="card-video-topo">
-
-                                        <span class="card-video-numero">
-                                            VÍDEO 03
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="card-video-conteudo">
-
-                                        <span class="card-video-label">
-                                            TRABALHO DA TURMA
-                                        </span>
-
-                                        <h3>
-                                            Natalia Pasternak
-                                        </h3>
-
-                                        <p class="card-video-alunos">
-                                            Vitor Pasternakk, David e Caio
-                                        </p>
-
-                                        <div class="card-video-linha"></div>
-
-                                        <p class="card-video-descricao">
-                                            Trabalho produzido pelos alunos
-                                            sobre Natalia Pasternak.
-                                        </p>
-
-
-                                        <a
-                                            href="https://youtu.be/nDhLE-SJPZY?si=zAr1rCiylk5O2OSZ"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="video-youtube"
-                                        >
-                                            <span>▶</span>
-                                            Assistir no YouTube
-                                            <span>↗</span>
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- ==================================================
-                                 VÍDEO 4
-                            =================================================== -->
-
-                            <article class="carrossel-slide">
-
-                                <div class="card-video">
-
-                                    <div class="card-video-topo">
-
-                                        <span class="card-video-numero">
-                                            VÍDEO 04
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="card-video-conteudo">
-
-                                        <span class="card-video-label">
-                                            TRABALHO DA TURMA
-                                        </span>
-
-                                        <h3>
-                                            Leandro Karnal
-                                        </h3>
-
-                                        <p class="card-video-alunos">
-                                            Brendha, Julia Balan e Luiz Eduardo
-                                        </p>
-
-                                        <div class="card-video-linha"></div>
-
-                                        <p class="card-video-descricao">
-                                            Trabalho produzido pelos alunos
-                                            sobre Leandro Karnal.
-                                        </p>
-
-
-                                        <a
-                                            href="https://youtu.be/0X72ycTla_8?si=nH5S2qVUG-nZbqyN"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="video-youtube"
-                                        >
-                                            <span>▶</span>
-                                            Assistir no YouTube
-                                            <span>↗</span>
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- ==================================================
-                                 VÍDEO 5
-                            =================================================== -->
-
-                            <article class="carrossel-slide">
-
-                                <div class="card-video">
-
-                                    <div class="card-video-topo">
-
-                                        <span class="card-video-numero">
-                                            VÍDEO 05
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="card-video-conteudo">
-
-                                        <span class="card-video-label">
-                                            TRABALHO DA TURMA
-                                        </span>
-
-                                        <h3>
-                                            Marielle Franco
-                                        </h3>
-
-                                        <p class="card-video-alunos">
-                                            Alicia, Guilherme Bueno e Vitor Livina
-                                        </p>
-
-                                        <div class="card-video-linha"></div>
-
-                                        <p class="card-video-descricao">
-                                            Trabalho produzido pelos alunos
-                                            sobre Marielle Franco.
-                                        </p>
-
-
-                                        <a
-                                            href="https://youtu.be/N3mLERzPAlM?si=ULsBpA4I8SH2RHvA"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="video-youtube"
-                                        >
-                                            <span>▶</span>
-                                            Assistir no YouTube
-                                            <span>↗</span>
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- BOTÃO PRÓXIMO -->
-
-                    <button
-                        id="btnProximo"
-                        class="carrossel-btn carrossel-btn-proximo"
-                        type="button"
-                        aria-label="Próximo vídeo"
+                    <a
+                        href="https://www.canva.com/design/DAHOPEOMwr4/8rPuVBw0wezRRNl1DYzarQ/edit"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
                     >
-                        →
-                    </button>
+                        <span>
+                            Ver trabalho
+                        </span>
 
-                </div>
+                        <span>
+                            →
+                        </span>
+                    </a>
 
-
-                <!-- ==================================================
-                     INDICADORES
-                =================================================== -->
-
-                <div
-                    id="carrosselIndicadores"
-                    class="carrossel-indicadores"
-                >
-
-                    <button
-                        type="button"
-                        class="carrossel-indicador ativo"
-                        data-slide="0"
-                        aria-label="Ir para o vídeo 1"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="carrossel-indicador"
-                        data-slide="1"
-                        aria-label="Ir para o vídeo 2"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="carrossel-indicador"
-                        data-slide="2"
-                        aria-label="Ir para o vídeo 3"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="carrossel-indicador"
-                        data-slide="3"
-                        aria-label="Ir para o vídeo 4"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="carrossel-indicador"
-                        data-slide="4"
-                        aria-label="Ir para o vídeo 5"
-                    ></button>
-
-                </div>
+                </article>
 
 
-            </section>
 
-        </div>
+                <!-- 04 -->
+
+                <article class="card-biografia">
+
+                    <span class="biografia-numero">
+                        04
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Tábata Amaral
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Erika Anthonella Martinez Hopp<br>
+                        Johangel Emiliano Aguilera Salazar<br>
+                        Maria Isabelly Oliveira
+                    </p>
+
+                    <a
+                        href="https://drive.google.com/file/d/12C99BQjAymoh29jOOcyUT_OGnQIYBOXV/view?usp=drivesdk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
+                    >
+                        <span>
+                            Ver trabalho
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 05 -->
+
+                <article class="card-biografia">
+
+                    <span class="biografia-numero">
+                        05
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Juliane Furno
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Ketelyn Tayane Heguedichi Ferreira<br>
+                        Gabrielly Freitas de Araújo<br>
+                        Eliezer Sebastian Maita Aguilera
+                    </p>
+
+                    <a
+                        href="https://drive.google.com/file/d/1xEU_OnxIgweeSLDRNQOLnVryJeU3himv/view?usp=drivesdk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
+                    >
+                        <span>
+                            Ver trabalho
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 06 -->
+
+                <article class="card-biografia">
+
+                    <span class="biografia-numero">
+                        06
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Paulo Freire
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Ana Vitória de Souza de Assis<br>
+                        Diogo Franciosi Siqueira<br>
+                        Marco Antônio Perez Zampieri
+                    </p>
+
+                    <a
+                        href="https://drive.google.com/file/d/1RF_fCDHnum6fXiCJAdkt9YHC79rCUjK9/view?usp=drivesdk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
+                    >
+                        <span>
+                            Ver trabalho
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 07 -->
+
+                <article class="card-biografia">
+
+                    <span class="biografia-numero">
+                        07
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Eliane Potiguara
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Isabela Cristina Guth<br>
+                        Lucas de Oliveira<br>
+                        Rafael Santos Tuschinski<br>
+                        Samuel Augusto D. Hetkowski
+                    </p>
+
+                    <a
+                        href="https://classroom.google.com/c/ODQxNTI3MTY2Nzg4/p/ODY4OTg5Nzg1NjYz/details"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
+                    >
+                        <span>
+                            Ver trabalho
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 08 -->
+
+                <article class="card-biografia">
+
+                    <span class="biografia-numero">
+                        08
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Leandro Karnal
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Julia do Carmo Balan<br>
+                        Natália Silva<br>
+                        Luís Eduardo Moraes
+                    </p>
+
+                    <a
+                        href="https://drive.google.com/file/d/1ErSA3voJ8FRDE6s_d5tBAPrDaUaafjGg/view?usp=drivesdk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
+                    >
+                        <span>
+                            Ver trabalho
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 09 -->
+
+                <article class="card-biografia">
+
+                    <span class="biografia-numero">
+                        09
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Natália Pasternak
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Deyvid Rian Olinquevics<br>
+                        Vittor Gabriel Pasternak
+                    </p>
+
+                    <a
+                        href="https://drive.google.com/file/d/1shLRiBK7xqPYJRrRZg_lvBFLpuHrRBBU/view?usp=drivesdk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
+                    >
+                        <span>
+                            Ver trabalho
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 10 -->
+
+                <article class="card-biografia">
+
+                    <span class="biografia-numero">
+                        10
+                    </span>
+
+                    <span class="biografia-label">
+                        BIOGRAFIA
+                    </span>
+
+                    <h3>
+                        Sueli Carneiro
+                    </h3>
+
+                    <div class="biografia-linha"></div>
+
+                    <p class="biografia-alunos">
+                        Brendha Emanuielly S. Rodrigues
+                    </p>
+
+                    <a
+                        href="https://www.canva.com/design/DAHSqREJU_g/xYHwHcd2Mw2-2pY5wfKxyA/edit"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="biografia-botao"
+                    >
+                        <span>
+                            Ver trabalho
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
 
     </main>
 
 
-    <!-- ==================================================
-         JAVASCRIPT
-    =================================================== -->
+
+    <!-- =====================================================
+         JAVASCRIPT GERAL DO SITE
+    ====================================================== -->
 
     <script
         type="module"
