@@ -67,6 +67,7 @@ function abrirModal(modal) {
     }
 }
 
+
 function fecharModal(modal) {
     if (modal) {
         modal.style.display = "none";
@@ -150,7 +151,11 @@ const btnTrabalhoProximo =
     document.getElementById("btnTrabalhoProximo");
 
 
-let trabalhos = [
+// ======================================================
+// TRABALHOS
+// ======================================================
+
+const trabalhos = [
 
     {
         titulo: "Análise de uma obra literária",
@@ -197,19 +202,26 @@ let trabalhoAtual = 0;
 
 function criarCarrosselTrabalhos() {
 
-    if (
-        !trabalhosTrack ||
-        !trabalhosIndicadores
-    ) {
+    if (!trabalhosTrack) {
+
         console.warn(
-            "Elementos do carrossel de trabalhos não encontrados."
+            "ERRO: #trabalhosTrack não foi encontrado no HTML."
         );
 
         return;
     }
 
+
+    // Limpa o conteúdo anterior
+
     trabalhosTrack.innerHTML = "";
-    trabalhosIndicadores.innerHTML = "";
+
+    if (trabalhosIndicadores) {
+        trabalhosIndicadores.innerHTML = "";
+    }
+
+
+    // Cria cada trabalho
 
     trabalhos.forEach((trabalho, indice) => {
 
@@ -219,6 +231,10 @@ function criarCarrosselTrabalhos() {
         slide.className =
             "trabalho-slide";
 
+
+        // ==================================================
+        // IMAGEM
+        // ==================================================
 
         let areaImagem = "";
 
@@ -246,11 +262,19 @@ function criarCarrosselTrabalhos() {
         }
 
 
+        // ==================================================
+        // NOMES
+        // ==================================================
+
         const nomesAlunos =
             trabalho.alunos
                 .map(aluno => escaparHTML(aluno))
                 .join(" • ");
 
+
+        // ==================================================
+        // CONTEÚDO DO SLIDE
+        // ==================================================
 
         slide.innerHTML = `
 
@@ -276,6 +300,7 @@ function criarCarrosselTrabalhos() {
                 <div class="trabalho-alunos">
 
                     <span class="alunos-icone">
+                        👥
                     </span>
 
 
@@ -301,37 +326,45 @@ function criarCarrosselTrabalhos() {
         trabalhosTrack.appendChild(slide);
 
 
-        // Indicador
+        // ==================================================
+        // INDICADOR
+        // ==================================================
 
-        const indicador =
-            document.createElement("button");
+        if (trabalhosIndicadores) {
 
-        indicador.type = "button";
+            const indicador =
+                document.createElement("button");
 
-        indicador.className =
-            "trabalho-indicador";
+            indicador.type = "button";
 
-        indicador.setAttribute(
-            "aria-label",
-            `Ir para o trabalho ${indice + 1}`
-        );
+            indicador.className =
+                "trabalho-indicador";
 
-
-        indicador.addEventListener("click", () => {
-
-            trabalhoAtual = indice;
-
-            atualizarCarrosselTrabalhos();
-
-        });
+            indicador.setAttribute(
+                "aria-label",
+                `Ir para o trabalho ${indice + 1}`
+            );
 
 
-        trabalhosIndicadores.appendChild(
-            indicador
-        );
+            indicador.addEventListener("click", () => {
+
+                trabalhoAtual = indice;
+
+                atualizarCarrosselTrabalhos();
+
+            });
+
+
+            trabalhosIndicadores.appendChild(
+                indicador
+            );
+
+        }
 
     });
 
+
+    // Atualiza posição inicial
 
     atualizarCarrosselTrabalhos();
 
@@ -345,16 +378,37 @@ function criarCarrosselTrabalhos() {
 function atualizarCarrosselTrabalhos() {
 
     if (
-        !trabalhos.length ||
-        !trabalhosTrack
+        !trabalhosTrack ||
+        !trabalhos.length
     ) {
         return;
     }
 
 
+    // Garante que o índice nunca fique inválido
+
+    if (trabalhoAtual < 0) {
+        trabalhoAtual = 0;
+    }
+
+    if (
+        trabalhoAtual >
+        trabalhos.length - 1
+    ) {
+        trabalhoAtual =
+            trabalhos.length - 1;
+    }
+
+
+    // Move o carrossel
+
     trabalhosTrack.style.transform =
         `translateX(-${trabalhoAtual * 100}%)`;
 
+
+    // ==================================================
+    // INDICADORES
+    // ==================================================
 
     const indicadores =
         trabalhosIndicadores?.querySelectorAll(
@@ -374,6 +428,10 @@ function atualizarCarrosselTrabalhos() {
     );
 
 
+    // ==================================================
+    // BOTÃO ANTERIOR
+    // ==================================================
+
     if (btnTrabalhoAnterior) {
 
         btnTrabalhoAnterior.disabled =
@@ -381,6 +439,10 @@ function atualizarCarrosselTrabalhos() {
 
     }
 
+
+    // ==================================================
+    // BOTÃO PRÓXIMO
+    // ==================================================
 
     if (btnTrabalhoProximo) {
 
@@ -440,797 +502,22 @@ btnTrabalhoProximo?.addEventListener(
 // INICIAR CARROSSEL
 // ======================================================
 
-criarCarrosselTrabalhos();
+function iniciarCarrosselLiteratura() {
 
+    criarCarrosselTrabalhos();
 
-// ======================================================
-// PODCASTS
-// ======================================================
+}
 
-const formPodcast =
-    document.getElementById("formPodcast");
 
+if (document.readyState === "loading") {
 
-if (formPodcast) {
-
-    formPodcast.addEventListener(
-        "submit",
-        async (event) => {
-
-            event.preventDefault();
-
-
-            const autor =
-                document
-                    .getElementById("autorPodcast")
-                    ?.value
-                    .trim();
-
-            const email =
-                document
-                    .getElementById("emailPodcast")
-                    ?.value
-                    .trim();
-
-            const titulo =
-                document
-                    .getElementById("tituloPodcast")
-                    ?.value
-                    .trim();
-
-            const descricao =
-                document
-                    .getElementById("descricaoPodcast")
-                    ?.value
-                    .trim();
-
-            const arquivo =
-                document
-                    .getElementById("arquivoPodcast")
-                    ?.files[0];
-
-
-            if (
-                !autor ||
-                !email ||
-                !titulo ||
-                !descricao ||
-                !arquivo
-            ) {
-
-                alert(
-                    "Preencha todos os campos."
-                );
-
-                return;
-
-            }
-
-
-            if (
-                !arquivo.type.startsWith("audio/")
-            ) {
-
-                alert(
-                    "Selecione um arquivo de áudio válido."
-                );
-
-                return;
-
-            }
-
-
-            const botao =
-                formPodcast.querySelector(
-                    "button[type='submit']"
-                );
-
-
-            botao.disabled = true;
-
-            botao.textContent =
-                "Enviando podcast...";
-
-
-            try {
-
-                const nomeArquivo =
-                    `${Date.now()}_${arquivo.name}`;
-
-
-                const caminho =
-                    `podcasts/${nomeArquivo}`;
-
-
-                const arquivoRef =
-                    ref(
-                        storage,
-                        caminho
-                    );
-
-
-                await uploadBytes(
-                    arquivoRef,
-                    arquivo
-                );
-
-
-                const urlAudio =
-                    await getDownloadURL(
-                        arquivoRef
-                    );
-
-
-                await addDoc(
-                    collection(
-                        db,
-                        "podcasts"
-                    ),
-                    {
-
-                        autor,
-
-                        email,
-
-                        titulo,
-
-                        descricao,
-
-                        arquivoAudio:
-                            urlAudio,
-
-                        nomeArquivo:
-                            arquivo.name,
-
-                        materia,
-
-                        criadoEm:
-                            serverTimestamp()
-
-                    }
-                );
-
-
-                formPodcast.reset();
-
-
-                fecharModal(
-                    modalPodcast
-                );
-
-
-                alert(
-                    "Podcast adicionado com sucesso!"
-                );
-
-
-            } catch (erro) {
-
-                console.error(
-                    "Erro ao enviar podcast:",
-                    erro
-                );
-
-
-                alert(
-                    "Não foi possível enviar o podcast."
-                );
-
-
-            } finally {
-
-                botao.disabled = false;
-
-                botao.textContent =
-                    "Adicionar Podcast";
-
-            }
-
-        }
+    document.addEventListener(
+        "DOMContentLoaded",
+        iniciarCarrosselLiteratura
     );
 
-}
+} else {
 
-
-// ======================================================
-// CARREGAR PODCASTS
-// ======================================================
-
-if (listaPodcasts) {
-
-    const consulta =
-        query(
-            collection(
-                db,
-                "podcasts"
-            ),
-
-            where(
-                "materia",
-                "==",
-                materia
-            )
-        );
-
-
-    onSnapshot(
-        consulta,
-
-        (snapshot) => {
-
-            listaPodcasts.innerHTML = "";
-
-
-            if (snapshot.empty) {
-
-                listaPodcasts.innerHTML = `
-
-                    <div class="empty-state">
-
-                        <p>
-                            Ainda não existem podcasts em ${materia}.
-                        </p>
-
-                    </div>
-
-                `;
-
-                return;
-
-            }
-
-
-            snapshot.forEach(
-                (documento) => {
-
-                    criarCardPodcast(
-                        documento.data()
-                    );
-
-                }
-            );
-
-        },
-
-        (erro) => {
-
-            console.error(
-                "Erro ao carregar podcasts:",
-                erro
-            );
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// CARD PODCAST
-// ======================================================
-
-function criarCardPodcast(podcast) {
-
-    const card =
-        document.createElement("article");
-
-
-    card.className =
-        "card-podcast";
-
-
-    card.innerHTML = `
-
-        <div class="icone-podcast">
-            🎙
-        </div>
-
-
-        <div class="podcast-info">
-
-            <h3>
-                ${escaparHTML(
-                    podcast.titulo ||
-                    "Sem título"
-                )}
-            </h3>
-
-
-            <p class="card-autor">
-                ${escaparHTML(
-                    podcast.autor ||
-                    "Autor desconhecido"
-                )}
-            </p>
-
-
-            <p class="podcast-descricao">
-                ${escaparHTML(
-                    podcast.descricao ||
-                    ""
-                )}
-            </p>
-
-
-            <audio
-                class="player-podcast"
-                controls
-                preload="metadata"
-            >
-
-                <source
-                    src="${podcast.arquivoAudio}"
-                >
-
-                Seu navegador não suporta áudio.
-
-            </audio>
-
-        </div>
-
-    `;
-
-
-    listaPodcasts.appendChild(card);
-
-}
-
-
-// ======================================================
-// BIOGRAFIAS
-// ======================================================
-
-const formBiografia =
-    document.getElementById("formBiografia");
-
-
-if (formBiografia) {
-
-    formBiografia.addEventListener(
-        "submit",
-        async (event) => {
-
-            event.preventDefault();
-
-
-            const nome =
-                document
-                    .getElementById("nomeBiografado")
-                    ?.value
-                    .trim();
-
-            const autor =
-                document
-                    .getElementById("autorBiografia")
-                    ?.value
-                    .trim();
-
-            const email =
-                document
-                    .getElementById("emailBiografia")
-                    ?.value
-                    .trim();
-
-            const titulo =
-                document
-                    .getElementById("tituloBiografia")
-                    ?.value
-                    .trim();
-
-            const texto =
-                document
-                    .getElementById("textoBiografia")
-                    ?.value
-                    .trim();
-
-            const imagem =
-                document
-                    .getElementById("imagemBiografia")
-                    ?.files[0];
-
-
-            if (
-                !nome ||
-                !autor ||
-                !email ||
-                !titulo ||
-                !texto ||
-                !imagem
-            ) {
-
-                alert(
-                    "Preencha todos os campos."
-                );
-
-                return;
-
-            }
-
-
-            if (
-                !imagem.type.startsWith("image/")
-            ) {
-
-                alert(
-                    "Selecione uma imagem válida."
-                );
-
-                return;
-
-            }
-
-
-            const botao =
-                formBiografia.querySelector(
-                    "button[type='submit']"
-                );
-
-
-            botao.disabled = true;
-
-            botao.textContent =
-                "Enviando biografia...";
-
-
-            try {
-
-                const nomeArquivo =
-                    `${Date.now()}_${imagem.name}`;
-
-
-                const caminho =
-                    `biografias/${nomeArquivo}`;
-
-
-                const imagemRef =
-                    ref(
-                        storage,
-                        caminho
-                    );
-
-
-                await uploadBytes(
-                    imagemRef,
-                    imagem
-                );
-
-
-                const urlImagem =
-                    await getDownloadURL(
-                        imagemRef
-                    );
-
-
-                await addDoc(
-                    collection(
-                        db,
-                        "biografias"
-                    ),
-                    {
-
-                        nome,
-
-                        autor,
-
-                        email,
-
-                        titulo,
-
-                        texto,
-
-                        imagem:
-                            urlImagem,
-
-                        nomeArquivo:
-                            imagem.name,
-
-                        materia,
-
-                        criadoEm:
-                            serverTimestamp()
-
-                    }
-                );
-
-
-                formBiografia.reset();
-
-
-                fecharModal(
-                    modalBiografia
-                );
-
-
-                alert(
-                    "Biografia adicionada com sucesso!"
-                );
-
-
-            } catch (erro) {
-
-                console.error(
-                    "Erro ao enviar biografia:",
-                    erro
-                );
-
-
-                alert(
-                    "Não foi possível enviar a biografia."
-                );
-
-
-            } finally {
-
-                botao.disabled = false;
-
-                botao.textContent =
-                    "Adicionar Biografia";
-
-            }
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// CARREGAR BIOGRAFIAS
-// ======================================================
-
-if (listaBiografias) {
-
-    const consulta =
-        query(
-            collection(
-                db,
-                "biografias"
-            ),
-
-            where(
-                "materia",
-                "==",
-                materia
-            )
-        );
-
-
-    onSnapshot(
-        consulta,
-
-        (snapshot) => {
-
-            listaBiografias.innerHTML = "";
-
-
-            if (snapshot.empty) {
-
-                listaBiografias.innerHTML = `
-
-                    <div class="empty-state">
-
-                        <p>
-                            Ainda não existem biografias em ${materia}.
-                        </p>
-
-                    </div>
-
-                `;
-
-                return;
-
-            }
-
-
-            snapshot.forEach(
-                (documento) => {
-
-                    criarCardBiografia(
-                        documento.data()
-                    );
-
-                }
-            );
-
-        },
-
-        (erro) => {
-
-            console.error(
-                "Erro ao carregar biografias:",
-                erro
-            );
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// CARD BIOGRAFIA
-// ======================================================
-
-function criarCardBiografia(biografia) {
-
-    const card =
-        document.createElement("article");
-
-
-    card.className =
-        "card-biografia";
-
-
-    let previa =
-        biografia.texto || "";
-
-
-    if (previa.length > 180) {
-
-        previa =
-            previa.substring(0, 180) +
-            "...";
-
-    }
-
-
-    card.innerHTML = `
-
-        <div class="biografia-imagem">
-
-            <img
-                src="${biografia.imagem}"
-                alt="${escaparHTML(
-                    biografia.nome ||
-                    "Pessoa"
-                )}"
-            >
-
-        </div>
-
-
-        <div class="biografia-info">
-
-            <h3>
-                ${escaparHTML(
-                    biografia.nome ||
-                    "Nome não informado"
-                )}
-            </h3>
-
-
-            <h4>
-                ${escaparHTML(
-                    biografia.titulo ||
-                    ""
-                )}
-            </h4>
-
-
-            <p>
-                ${escaparHTML(previa)}
-            </p>
-
-
-            <button
-                class="btn-ler-biografia"
-                type="button"
-            >
-                Ler biografia →
-            </button>
-
-        </div>
-
-    `;
-
-
-    card
-        .querySelector(
-            ".btn-ler-biografia"
-        )
-        .addEventListener(
-            "click",
-            () => {
-                abrirBiografia(biografia);
-            }
-        );
-
-
-    listaBiografias.appendChild(card);
-
-}
-
-
-// ======================================================
-// ABRIR BIOGRAFIA
-// ======================================================
-
-function abrirBiografia(biografia) {
-
-    const conteudo =
-        document.getElementById(
-            "conteudoBiografia"
-        );
-
-
-    if (!conteudo) {
-        return;
-    }
-
-
-    conteudo.innerHTML = `
-
-        <img
-            class="imagem-biografia-leitura"
-            src="${biografia.imagem}"
-            alt="${escaparHTML(
-                biografia.nome ||
-                "Pessoa"
-            )}"
-        >
-
-
-        <h2 class="titulo-biografia">
-            ${escaparHTML(
-                biografia.nome ||
-                "Sem nome"
-            )}
-        </h2>
-
-
-        <h3 class="subtitulo-biografia">
-            ${escaparHTML(
-                biografia.titulo ||
-                ""
-            )}
-        </h3>
-
-
-        <div class="texto-biografia">
-            ${escaparHTML(
-                biografia.texto ||
-                ""
-            )}
-        </div>
-
-
-        <p class="autor-redacao">
-
-            <strong>
-                Autor:
-            </strong>
-
-            ${escaparHTML(
-                biografia.autor ||
-                "Desconhecido"
-            )}
-
-        </p>
-
-    `;
-
-
-    abrirModal(
-        modalLeituraBiografia
-    );
-
-}
-
-
-// ======================================================
-// PROTEGER HTML
-// ======================================================
-
-function escaparHTML(texto) {
-
-    const div =
-        document.createElement("div");
-
-
-    div.textContent =
-        texto;
-
-
-    return div.innerHTML;
+    iniciarCarrosselLiteratura();
 
 }
