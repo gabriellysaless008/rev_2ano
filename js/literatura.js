@@ -300,7 +300,6 @@ function criarCarrosselTrabalhos() {
                 <div class="trabalho-alunos">
 
                     <span class="alunos-icone">
-                        👥
                     </span>
 
 

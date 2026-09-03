@@ -954,58 +954,52 @@ function escaparHTML(texto) {
 // CARROSSEL DE VÍDEOS
 // ======================================================
 
-const videosSociologia = [
 
+   const videosSociologia = [
+    {
+        titulo: "Mariele Franco",
+        alunos: "Alicia, Guilherme Bueno e Vitor Livina",
+        descricao: "Trabalho produzido pelos alunos sobre Mariele Franco.",
+        url: "https://youtu.be/N3mLERzPAlM?si=ULsBpA4I8SH2RHvA"
+    },
     {
         titulo: "Juliane Furno",
         alunos: "Ketelyn, Gabrielly e Sebastian",
-        descricao:
-            "Trabalho produzido pelos alunos sobre Juliane Furno.",
-        url:
-            "https://youtu.be/GoNvmioRuOs?si=aPJPedRUYcT9juIk"
+        descricao: "Trabalho produzido pelos alunos sobre Juliane Furno.",
+        url: "https://youtu.be/GoNvmioRuOs?si=aPJPedRUYcT9juIk"
     },
-
     {
         titulo: "Eliane Potiguara",
-        alunos:
-            "Samuel, Rafael, Isabela Guth e Lucas",
-        descricao:
-            "Trabalho produzido pelos alunos sobre Eliane Potiguara.",
-        url:
-            "https://youtu.be/skVPiTBKRW0?si=OXmm8FUkepHFFdN3"
+        alunos: "Samuel, Rafael, Isabela Guth e Lucas",
+        descricao: "Trabalho produzido pelos alunos sobre Eliane Potiguara.",
+        url: "https://youtu.be/skVPiTBKRW0?si=OXmm8FUkepHFFdN3"
     },
-
+    {
+        titulo: "Paulo Freire",
+        alunos: "Ana, Diogo e Marco Antônio",
+        descricao: "Trabalho produzido pelos alunos sobre Paulo Freire.",
+        url: "https://youtu.be/nDhLE-SJPZY?si=zAr1rCiylk5O2OSZ"
+    },
     {
         titulo: "Natalia Pasternak",
-        alunos:
-            "Vitor Pasternakk, David e Caio",
-        descricao:
-            "Trabalho produzido pelos alunos sobre Natalia Pasternak.",
-        url:
-            "https://youtu.be/nDhLE-SJPZY?si=zAr1rCiylk5O2OSZ"
+        alunos: "Vitor Pasternak, David e Caio",
+        descricao: "Trabalho produzido pelos alunos sobre Natalia Pasternak.",
+        url: "https://youtu.be/MJV-TjIatps?si=nemciO9IhXdwEB44"
     },
-
+    {
+        titulo: "Tabata Amaral",
+        alunos: "Maria, Erika e Emiliano",
+        descricao: "Trabalho produzido pelos alunos sobre Tabata Amaral.",
+        url: "https://youtu.be/vQhcl75J_MI?si=02sBQOnxEke1523Y"
+    },
     {
         titulo: "Leandro Karnal",
-        alunos:
-            "Brendha, Julia Balan e Luiz Eduardo",
-        descricao:
-            "Trabalho produzido pelos alunos sobre Leandro Karnal.",
-        url:
-            "https://youtu.be/0X72ycTla_8?si=nH5S2qVUG-nZbqyN"
-    },
-
-    {
-        titulo: "Marielle Franco",
-        alunos:
-            "Alicia, Guilherme Bueno e Vitor Livina",
-        descricao:
-            "Trabalho produzido pelos alunos sobre Marielle Franco.",
-        url:
-            "https://youtu.be/N3mLERzPAlM?si=ULsBpA4I8SH2RHvA"
+        alunos: "Brendha, Julia Balan e Luiz Eduardo",
+        descricao: "Trabalho produzido pelos alunos sobre Leandro Karnal.",
+        url: "https://youtu.be/0X72ycTla_8?si=nH5S2qVUG-nZbqyN"
     }
-
 ];
+
 
 
 // ======================================================

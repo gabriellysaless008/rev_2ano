@@ -85,7 +85,7 @@
             </h2>
 
             <p>
-                Redações, vídeos e biografias produzidos
+                Podcasts, vídeos e biografias produzidos
                 pelos alunos da turma.
             </p>
 
@@ -105,7 +105,7 @@
                 <div>
 
                     <span>
-                        VÍDEOS
+                        VÍDEOS/PODCASTS
                     </span>
 
                     <h2>
@@ -113,7 +113,7 @@
                     </h2>
 
                     <p>
-                        Confira os vídeos produzidos pelos alunos.
+                        Confira os vídeos e podcasts produzidos pelos alunos.
                     </p>
 
                 </div>
@@ -121,7 +121,7 @@
             </div>
 
 
-            <!-- CARROSSEL -->
+            <!-- CARROSSEL DE VÍDEOS -->
 
             <div class="carrossel">
 
@@ -642,155 +642,10 @@
 
 
     <!-- =====================================================
-         JAVASCRIPT GERAL DO SITE
+         JAVASCRIPT
     ====================================================== -->
 
     <script type="module" src="js/sociologia.js"></script>
-
-    <!-- =====================================================
-         CARROSSEL DE VÍDEOS - SOCIOLOGIA
-         Fallback independente do Firebase
-    ====================================================== -->
-
-    <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const track = document.getElementById("carrosselVideosTrack");
-            const indicadores = document.getElementById("carrosselVideosIndicadores");
-            const anterior = document.getElementById("btnVideoAnterior");
-            const proximo = document.getElementById("btnVideoProximo");
-
-            if (!track || !indicadores || !anterior || !proximo) {
-                return;
-            }
-
-            const videos = [
-                {
-                    titulo: "Juliane Furno",
-                    alunos: "Ketelyn, Gabrielly e Sebastian",
-                    descricao: "Trabalho produzido pelos alunos sobre Juliane Furno.",
-                    url: "https://youtu.be/GoNvmioRuOs?si=aPJPedRUYcT9juIk"
-                },
-                {
-                    titulo: "Eliane Potiguara",
-                    alunos: "Samuel, Rafael, Isabela Guth e Lucas",
-                    descricao: "Trabalho produzido pelos alunos sobre Eliane Potiguara.",
-                    url: "https://youtu.be/skVPiTBKRW0?si=OXmm8FUkepHFFdN3"
-                },
-                {
-                    titulo: "Natalia Pasternak",
-                    alunos: "Vitor Pasternakk, David e Caio",
-                    descricao: "Trabalho produzido pelos alunos sobre Natalia Pasternak.",
-                    url: "https://youtu.be/nDhLE-SJPZY?si=zAr1rCiylk5O2OSZ"
-                },
-                {
-                    titulo: "Leandro Karnal",
-                    alunos: "Brendha, Julia Balan e Luiz Eduardo",
-                    descricao: "Trabalho produzido pelos alunos sobre Leandro Karnal.",
-                    url: "https://youtu.be/0X72ycTla_8?si=nH5S2qVUG-nZbqyN"
-                },
-                {
-                    titulo: "Marielle Franco",
-                    alunos: "Alicia, Guilherme Bueno e Vitor Livina",
-                    descricao: "Trabalho produzido pelos alunos sobre Marielle Franco.",
-                    url: "https://youtu.be/N3mLERzPAlM?si=ULsBpA4I8SH2RHvA"
-                }
-            ];
-
-            let atual = 0;
-
-            track.innerHTML = "";
-            indicadores.innerHTML = "";
-
-            videos.forEach((video, index) => {
-
-                const slide = document.createElement("article");
-                slide.className = "carrossel-slide";
-
-                slide.innerHTML = `
-                    <div class="card-video">
-                        <div class="card-video-topo">
-                            <span class="card-video-numero">
-                                VÍDEO ${String(index + 1).padStart(2, "0")}
-                            </span>
-                        </div>
-
-                        <div class="card-video-conteudo">
-                            <span class="card-video-label">
-                                TRABALHO DA TURMA
-                            </span>
-
-                            <h3>${video.titulo}</h3>
-
-                            <p class="card-video-alunos">
-                                ${video.alunos}
-                            </p>
-
-                            <div class="card-video-linha"></div>
-
-                            <p class="card-video-descricao">
-                                ${video.descricao}
-                            </p>
-
-                            <a
-                                href="${video.url}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="video-youtube"
-                            >
-                                <span>▶</span>
-                                Assistir no YouTube
-                                <span>↗</span>
-                            </a>
-                        </div>
-                    </div>
-                `;
-
-                track.appendChild(slide);
-
-                const indicador = document.createElement("button");
-                indicador.type = "button";
-                indicador.className = "carrossel-indicador";
-                indicador.setAttribute("aria-label", `Ir para o vídeo ${index + 1}`);
-                indicador.addEventListener("click", () => {
-                    atual = index;
-                    atualizar();
-                });
-
-                indicadores.appendChild(indicador);
-            });
-
-            function atualizar() {
-                track.style.transform = `translateX(-${atual * 100}%)`;
-
-                indicadores.querySelectorAll(".carrossel-indicador").forEach((item, index) => {
-                    item.classList.toggle("ativo", index === atual);
-                });
-
-                anterior.disabled = atual === 0;
-                proximo.disabled = atual === videos.length - 1;
-            }
-
-            anterior.addEventListener("click", () => {
-                if (atual > 0) {
-                    atual--;
-                    atualizar();
-                }
-            });
-
-            proximo.addEventListener("click", () => {
-                if (atual < videos.length - 1) {
-                    atual++;
-                    atualizar();
-                }
-            });
-
-            atualizar();
-
-        });
-
-    </script>
 
 
 </body>
