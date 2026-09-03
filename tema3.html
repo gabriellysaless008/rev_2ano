@@ -23,415 +23,241 @@
 <body class="pagina-literatura">
 
 
-    <!-- ==================================================
-         CABEÇALHO
-    =================================================== -->
+<header class="literatura-header">
 
-    <header class="literatura-header">
+    <div class="literatura-header-inner">
 
-        <div class="literatura-header-inner">
-
-            <a
-                class="literatura-voltar"
-                href="index.html"
-            >
-                ← Voltar
-            </a>
+        <a
+            class="literatura-voltar"
+            href="index.html"
+        >
+            ← Voltar
+        </a>
 
 
-            <div class="literatura-marca">
+        <div class="literatura-marca">
 
-                <div class="literatura-icone">
-                    L
-                </div>
+            <div class="literatura-icone">
+                L
+            </div>
 
+            <div>
 
-                <div>
+                <strong>
+                    Literatura
+                </strong>
 
-                    <strong>
-                        Literatura
-                    </strong>
-
-                    <small>
-                        REDAÇÕES DA TURMA
-                    </small>
-
-                </div>
+                <small>
+                    REDAÇÕES DA TURMA
+                </small>
 
             </div>
 
         </div>
 
-    </header>
+    </div>
+
+</header>
+
+
+<main class="literatura-main">
+
+    <div class="literatura-container">
+
+
+        <div class="literatura-intro">
+
+            <span>
+                LITERATURA
+            </span>
+
+            <h1>
+                Redações da turma
+            </h1>
+
+            <p>
+                Redações produzidas pelos alunos durante as atividades de Literatura.
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             CARROSSEL DE REDAÇÕES
+        =================================================== -->
+
+        <section
+            class="secao-redacoes"
+            id="secaoRedacoes"
+        >
+
+            <div class="redacoes-carrossel">
+
+                <button
+                    id="btnAnterior"
+                    class="btn-carrossel btn-redacao"
+                    type="button"
+                    aria-label="Redação anterior"
+                >
+                    ←
+                </button>
+
+
+                <div class="carrossel-viewport">
+
+                    <div
+                        id="carrosselTrack"
+                        class="carrossel-track"
+                    ></div>
+
+                </div>
+
+
+                <button
+                    id="btnProximo"
+                    class="btn-carrossel btn-redacao"
+                    type="button"
+                    aria-label="Próxima redação"
+                >
+                    →
+                </button>
+
+            </div>
+
+
+            <div
+                id="carrosselIndicadores"
+                class="carrossel-indicadores"
+            ></div>
+
+        </section>
 
 
 
-    <!-- ==================================================
-         CONTEÚDO PRINCIPAL
-    =================================================== -->
+        <!-- ==================================================
+             CARROSSEL DE TRABALHOS
+        =================================================== -->
 
-    <main class="literatura-main">
+        <section
+            class="trabalhos-secao"
+            id="secaoTrabalhos"
+        >
 
-        <div class="literatura-container">
-
-
-            <!-- ==================================================
-                 INTRODUÇÃO
-            =================================================== -->
-
-            <div class="literatura-intro">
+            <div class="trabalhos-titulo">
 
                 <span>
-                    LITERATURA
+                    PROJETOS
                 </span>
 
-                <h1>
-                    Redações da turma
-                </h1>
+                <h2>
+                    Trabalhos da turma
+                </h2>
 
                 <p>
-                    Redações produzidas pelos alunos
-                    durante as atividades de Literatura.
+                    Registros dos trabalhos realizados pelos alunos durante as atividades.
                 </p>
 
             </div>
 
 
-
-            <!-- ==================================================
-                 CARROSSEL DE REDAÇÕES
-            =================================================== -->
-
-            <section
-                class="secao-redacoes"
-                id="secaoRedacoes"
-            >
-
-                <div class="redacoes-carrossel">
-
-                    <button
-                        id="btnAnterior"
-                        class="btn-carrossel btn-redacao"
-                        type="button"
-                        aria-label="Redação anterior"
-                    >
-                        ←
-                    </button>
-
-
-                    <div class="carrossel-viewport">
-
-                        <div
-                            id="carrosselTrack"
-                            class="carrossel-track"
-                        >
-                        </div>
-
-                    </div>
-
-
-                    <button
-                        id="btnProximo"
-                        class="btn-carrossel btn-redacao"
-                        type="button"
-                        aria-label="Próxima redação"
-                    >
-                        →
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="carrosselIndicadores"
-                    class="carrossel-indicadores"
-                >
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 CARROSSEL DE TRABALHOS
-            =================================================== -->
-
-            <section
-                class="trabalhos-secao"
-                id="secaoTrabalhos"
-            >
-
-
-                <!-- TÍTULO -->
-
-                <div class="trabalhos-titulo">
-
-                    <span>
-                        PROJETOS
-                    </span>
-
-                    <h2>
-                        Trabalhos da turma
-                    </h2>
-
-                    <p>
-                        Registros dos trabalhos realizados
-                        pelos alunos durante as atividades.
-                    </p>
-
-                </div>
-
-
-
-                <!-- CARROSSEL -->
-
-                <div class="trabalhos-carrossel">
-
-
-                    <!-- BOTÃO ANTERIOR -->
-
-                    <button
-                        id="btnTrabalhoAnterior"
-                        class="btn-trabalho"
-                        type="button"
-                        aria-label="Trabalho anterior"
-                    >
-                        ←
-                    </button>
-
-
-
-                    <!-- ÁREA DOS SLIDES -->
-
-                    <div class="trabalhos-viewport">
-
-                        <div
-                            id="trabalhosTrack"
-                            class="trabalhos-track"
-                        >
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- BOTÃO PRÓXIMO -->
-
-                    <button
-                        id="btnTrabalhoProximo"
-                        class="btn-trabalho"
-                        type="button"
-                        aria-label="Próximo trabalho"
-                    >
-                        →
-                    </button>
-
-                </div>
-
-
-
-                <!-- INDICADORES -->
-
-                <div
-                    id="trabalhosIndicadores"
-                    class="trabalhos-indicadores"
-                >
-                </div>
-
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 BOTÃO NOVA REDAÇÃO
-            =================================================== -->
-
-            <div class="literatura-acoes">
+            <div class="trabalhos-carrossel">
 
                 <button
-                    id="btnNovaRedacao"
-                    class="literatura-botao"
+                    id="btnTrabalhoAnterior"
+                    class="btn-trabalho"
                     type="button"
+                    aria-label="Trabalho anterior"
                 >
+                    ←
+                </button>
 
-                    <span>
-                        +
-                    </span>
 
-                    Nova Redação
+                <div class="trabalhos-viewport">
 
+                    <div
+                        id="trabalhosTrack"
+                        class="trabalhos-track"
+                    ></div>
+
+                </div>
+
+
+                <button
+                    id="btnTrabalhoProximo"
+                    class="btn-trabalho"
+                    type="button"
+                    aria-label="Próximo trabalho"
+                >
+                    →
                 </button>
 
             </div>
-
-
-        </div>
-
-    </main>
-
-
-
-    <!-- ==================================================
-         MODAL - NOVA REDAÇÃO
-    =================================================== -->
-
-    <div
-        id="modalRedacao"
-        class="literatura-modal"
-    >
-
-        <div class="literatura-modal-content">
-
-
-            <button
-                id="fecharModal"
-                class="literatura-fechar"
-                type="button"
-                aria-label="Fechar"
-            >
-                &times;
-            </button>
-
-
-            <h2>
-                Nova Redação
-            </h2>
-
-
-            <form id="formRedacao">
-
-
-                <label for="autor">
-                    Autor
-                </label>
-
-
-                <input
-                    type="text"
-                    id="autor"
-                    required
-                >
-
-
-
-                <label for="email">
-                    Email
-                </label>
-
-
-                <input
-                    type="email"
-                    id="email"
-                    required
-                >
-
-
-
-                <label for="titulo">
-                    Título
-                </label>
-
-
-                <input
-                    type="text"
-                    id="titulo"
-                    required
-                >
-
-
-
-                <label for="texto">
-                    Texto
-                </label>
-
-
-                <textarea
-                    id="texto"
-                    rows="10"
-                    required
-                ></textarea>
-
-
-
-                <button
-                    class="literatura-botao"
-                    type="submit"
-                >
-                    Enviar Redação
-                </button>
-
-
-            </form>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ==================================================
-         MODAL - LEITURA
-    =================================================== -->
-
-    <div
-        id="modalLeitura"
-        class="literatura-modal"
-    >
-
-        <div
-            class="literatura-modal-content literatura-leitura"
-        >
-
-
-            <button
-                id="fecharLeitura"
-                class="literatura-fechar"
-                type="button"
-                aria-label="Fechar"
-            >
-                &times;
-            </button>
-
-
-
-            <h2
-                id="tituloRedacao"
-                class="titulo-redacao"
-            >
-            </h2>
-
 
 
             <div
-                id="textoRedacao"
-                class="texto-redacao"
-            >
-            </div>
+                id="trabalhosIndicadores"
+                class="trabalhos-indicadores"
+            ></div>
 
+        </section>
 
-
-            <p
-                id="autorRedacao"
-                class="autor-redacao"
-            >
-            </p>
-
-
-        </div>
 
     </div>
 
+</main>
 
 
-    <!-- ==================================================
-         JAVASCRIPT
-    =================================================== -->
 
-    <script
-        type="module"
-        src="js/redacoes.js"
-    ></script>
+<!-- ==================================================
+     MODAL - LEITURA DA REDAÇÃO
+=================================================== -->
+
+<div
+    id="modalLeitura"
+    class="literatura-modal"
+>
+
+    <div
+        class="literatura-modal-content literatura-leitura"
+    >
+
+        <button
+            id="fecharLeitura"
+            class="literatura-fechar"
+            type="button"
+            aria-label="Fechar"
+        >
+            &times;
+        </button>
+
+
+        <h2
+            id="tituloRedacao"
+            class="titulo-redacao"
+        ></h2>
+
+
+        <div
+            id="textoRedacao"
+            class="texto-redacao"
+        ></div>
+
+
+        <p
+            id="autorRedacao"
+            class="autor-redacao"
+        ></p>
+
+    </div>
+
+</div>
+
+
+
+<script
+    type="module"
+    src="js/redacoes.js"
+></script>
 
 
 </body>

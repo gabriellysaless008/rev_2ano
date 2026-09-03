@@ -1,8 +1,6 @@
 import { app } from "./firebase.js";
 
-
 import {
-
     getFirestore,
     collection,
     addDoc,
@@ -10,19 +8,14 @@ import {
     where,
     onSnapshot,
     serverTimestamp
-
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
-
 import {
-
     getStorage,
     ref,
     uploadBytes,
     getDownloadURL
-
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-storage.js";
-
 
 
 // ======================================================
@@ -32,10 +25,8 @@ import {
 const db =
     getFirestore(app);
 
-
 const storage =
     getStorage(app);
-
 
 
 // ======================================================
@@ -43,23 +34,17 @@ const storage =
 // ======================================================
 
 const paginas = {
-
     "tema2.html": "Sociologia",
-
     "tema3.html": "Literatura"
-
 };
-
 
 const paginaAtual =
     window.location.pathname
         .split("/")
         .pop();
 
-
 const materia =
     paginas[paginaAtual];
-
 
 
 if (!materia) {
@@ -67,7 +52,6 @@ if (!materia) {
     console.log(
         "Página inicial. Nenhuma matéria selecionada."
     );
-
 
 } else {
 
@@ -77,33 +61,18 @@ if (!materia) {
     );
 
 
-
     // ======================================================
     // ELEMENTOS
     // ======================================================
-
-    const btnNovaRedacao =
-        document.getElementById(
-            "btnNovaRedacao"
-        );
-
 
     const btnNovoPodcast =
         document.getElementById(
             "btnNovoPodcast"
         );
 
-
     const btnNovaBiografia =
         document.getElementById(
             "btnNovaBiografia"
-        );
-
-
-
-    const modalRedacao =
-        document.getElementById(
-            "modalRedacao"
         );
 
 
@@ -112,29 +81,14 @@ if (!materia) {
             "modalPodcast"
         );
 
-
     const modalBiografia =
         document.getElementById(
             "modalBiografia"
         );
 
-
-    const modalLeitura =
-        document.getElementById(
-            "modalLeitura"
-        );
-
-
     const modalLeituraBiografia =
         document.getElementById(
             "modalLeituraBiografia"
-        );
-
-
-
-    const listaRedacoes =
-        document.getElementById(
-            "listaRedacoes"
         );
 
 
@@ -143,50 +97,135 @@ if (!materia) {
             "listaPodcasts"
         );
 
-
     const listaBiografias =
         document.getElementById(
             "listaBiografias"
         );
 
 
-
     // ======================================================
-    // ELEMENTOS DO CARROSSEL DE REDAÇÕES
+    // MODAIS
     // ======================================================
 
-    const carrosselTrack =
-        document.getElementById(
-            "carrosselTrack"
-        );
+    function abrirModal(modal) {
+
+        if (modal) {
+
+            modal.style.display =
+                "flex";
+
+        }
+
+    }
 
 
-    const carrosselIndicadores =
-        document.getElementById(
-            "carrosselIndicadores"
-        );
+    function fecharModal(modal) {
 
+        if (modal) {
 
-    const btnAnterior =
-        document.getElementById(
-            "btnAnterior"
-        );
+            modal.style.display =
+                "none";
 
+        }
 
-    const btnProximo =
-        document.getElementById(
-            "btnProximo"
-        );
-
-
-    let redacoesCarrossel = [];
-
-
-    let indiceAtual = 0;
-
+    }
 
 
     // ======================================================
+    // BOTÕES
+    // ======================================================
+
+    if (btnNovoPodcast) {
+
+        btnNovoPodcast.addEventListener(
+            "click",
+            () =>
+                abrirModal(
+                    modalPodcast
+                )
+        );
+
+    }
+
+
+    if (btnNovaBiografia) {
+
+        btnNovaBiografia.addEventListener(
+            "click",
+            () =>
+                abrirModal(
+                    modalBiografia
+                )
+        );
+
+    }
+
+
+    // ======================================================
+    // FECHAR MODAIS
+    // ======================================================
+
+    document
+        .getElementById("fecharPodcast")
+        ?.addEventListener(
+            "click",
+            () =>
+                fecharModal(
+                    modalPodcast
+                )
+        );
+
+
+    document
+        .getElementById("fecharBiografia")
+        ?.addEventListener(
+            "click",
+            () =>
+                fecharModal(
+                    modalBiografia
+                )
+        );
+
+
+    document
+        .getElementById("fecharLeituraBiografia")
+        ?.addEventListener(
+            "click",
+            () =>
+                fecharModal(
+                    modalLeituraBiografia
+                )
+        );
+
+
+    // ======================================================
+    // FECHAR AO CLICAR FORA
+    // ======================================================
+
+    window.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target.classList.contains(
+                    "literatura-modal"
+                )
+            ) {
+
+                fecharModal(
+                    event.target
+                );
+
+            }
+
+        }
+    );
+            "listaBiografias"
+        );
+
+
+
+        // ======================================================
     // MODAIS
     // ======================================================
 
@@ -219,23 +258,6 @@ if (!materia) {
     // ======================================================
     // BOTÕES
     // ======================================================
-
-    if (btnNovaRedacao) {
-
-        btnNovaRedacao.addEventListener(
-
-            "click",
-
-            () =>
-                abrirModal(
-                    modalRedacao
-                )
-
-        );
-
-    }
-
-
 
     if (btnNovoPodcast) {
 
@@ -274,21 +296,6 @@ if (!materia) {
     // ======================================================
     // FECHAR MODAIS
     // ======================================================
-
-    document
-        .getElementById("fecharModal")
-        ?.addEventListener(
-
-            "click",
-
-            () =>
-                fecharModal(
-                    modalRedacao
-                )
-
-        );
-
-
 
     document
         .getElementById("fecharPodcast")
@@ -375,773 +382,6 @@ if (!materia) {
         }
 
     );
-
-
-
-    // ======================================================
-    // REDAÇÕES
-    // ======================================================
-
-    const formRedacao =
-        document.getElementById(
-            "formRedacao"
-        );
-
-
-
-    if (formRedacao) {
-
-        formRedacao.addEventListener(
-
-            "submit",
-
-            async (event) => {
-
-                event.preventDefault();
-
-
-                const autor =
-                    document
-                        .getElementById("autor")
-                        .value
-                        .trim();
-
-
-                const email =
-                    document
-                        .getElementById("email")
-                        .value
-                        .trim();
-
-
-                const titulo =
-                    document
-                        .getElementById("titulo")
-                        .value
-                        .trim();
-
-
-                const texto =
-                    document
-                        .getElementById("texto")
-                        .value
-                        .trim();
-
-
-
-                if (
-
-                    !autor ||
-                    !email ||
-                    !titulo ||
-                    !texto
-
-                ) {
-
-                    alert(
-                        "Preencha todos os campos."
-                    );
-
-                    return;
-
-                }
-
-
-
-                const botao =
-                    formRedacao.querySelector(
-                        "button[type='submit']"
-                    );
-
-
-                botao.disabled =
-                    true;
-
-
-                botao.textContent =
-                    "Enviando...";
-
-
-
-                try {
-
-                    await addDoc(
-
-                        collection(
-                            db,
-                            "redacoes"
-                        ),
-
-                        {
-
-                            autor,
-
-                            email,
-
-                            titulo,
-
-                            texto,
-
-                            materia,
-
-                            criadoEm:
-                                serverTimestamp()
-
-                        }
-
-                    );
-
-
-                    formRedacao.reset();
-
-
-                    fecharModal(
-                        modalRedacao
-                    );
-
-
-                    alert(
-                        "Redação enviada com sucesso!"
-                    );
-
-
-                } catch (erro) {
-
-                    console.error(
-
-                        "Erro ao salvar redação:",
-
-                        erro
-
-                    );
-
-
-                    alert(
-                        "Não foi possível enviar a redação."
-                    );
-
-
-                } finally {
-
-                    botao.disabled =
-                        false;
-
-
-                    botao.textContent =
-                        "Enviar Redação";
-
-                }
-
-            }
-
-        );
-
-    }
-
-
-
-    // ======================================================
-    // CARREGAR REDAÇÕES
-    // ======================================================
-
-    if (listaRedacoes) {
-
-        const consulta =
-
-            query(
-
-                collection(
-                    db,
-                    "redacoes"
-                ),
-
-                where(
-
-                    "materia",
-
-                    "==",
-
-                    materia
-
-                )
-
-            );
-
-
-
-        onSnapshot(
-
-            consulta,
-
-
-            (snapshot) => {
-
-
-                redacoesCarrossel = [];
-
-
-                snapshot.forEach(
-
-                    (documento) => {
-
-                        redacoesCarrossel.push(
-
-                            documento.data()
-
-                        );
-
-                    }
-
-                );
-
-
-
-                if (
-
-                    redacoesCarrossel.length === 0
-
-                ) {
-
-                    if (carrosselTrack) {
-
-                        carrosselTrack.innerHTML = `
-
-                            <div class="empty-state">
-
-                                <span class="empty-icon">
-                                    ✦
-                                </span>
-
-                                <p>
-                                    Ainda não existem redações em ${materia}.
-                                </p>
-
-                            </div>
-
-                        `;
-
-                    }
-
-
-                    if (carrosselIndicadores) {
-
-                        carrosselIndicadores.innerHTML =
-                            "";
-
-                    }
-
-
-                    if (btnAnterior) {
-
-                        btnAnterior.disabled =
-                            true;
-
-                    }
-
-
-                    if (btnProximo) {
-
-                        btnProximo.disabled =
-                            true;
-
-                    }
-
-
-                    return;
-
-                }
-
-
-                indiceAtual = 0;
-
-
-                criarCarrosselRedacoes();
-
-            },
-
-
-            (erro) => {
-
-                console.error(
-
-                    "Erro ao carregar redações:",
-
-                    erro
-
-                );
-
-            }
-
-        );
-
-    }
-
-
-
-    // ======================================================
-    // CRIAR CARROSSEL DE REDAÇÕES
-    // ======================================================
-
-    function criarCarrosselRedacoes() {
-
-        if (
-
-            !carrosselTrack ||
-            !carrosselIndicadores
-
-        ) {
-
-            return;
-
-        }
-
-
-        carrosselTrack.innerHTML =
-            "";
-
-
-        carrosselIndicadores.innerHTML =
-            "";
-
-
-
-        redacoesCarrossel.forEach(
-
-            (redacao, indice) => {
-
-
-                const slide =
-                    document.createElement(
-                        "article"
-                    );
-
-
-                slide.className =
-                    "card-redacao carrossel-slide";
-
-
-
-                let previa =
-                    redacao.texto || "";
-
-
-
-                if (
-
-                    previa.length > 280
-
-                ) {
-
-                    previa =
-
-                        previa.substring(
-                            0,
-                            280
-                        )
-
-                        + "...";
-
-                }
-
-
-
-                let dataFormatada =
-                    "Data não disponível";
-
-
-
-                if (redacao.criadoEm) {
-
-                    dataFormatada =
-
-                        redacao.criadoEm
-                            .toDate()
-                            .toLocaleDateString(
-                                "pt-BR"
-                            );
-
-                }
-
-
-
-                slide.innerHTML = `
-
-                    <div class="redacao-numero">
-
-                        ${String(
-                            indice + 1
-                        ).padStart(2, "0")}
-
-                    </div>
-
-
-                    <div class="redacao-conteudo">
-
-
-                        <span class="redacao-label">
-
-                            REDAÇÃO DA TURMA
-
-                        </span>
-
-
-                        <h3>
-
-                            ${escaparHTML(
-
-                                redacao.titulo ||
-
-                                "Sem título"
-
-                            )}
-
-                        </h3>
-
-
-                        <p class="card-autor">
-
-                            Por
-
-                            <strong>
-
-                                ${escaparHTML(
-
-                                    redacao.autor ||
-
-                                    "Autor desconhecido"
-
-                                )}
-
-                            </strong>
-
-                        </p>
-
-
-                        <div class="linha-redacao"></div>
-
-
-                        <p class="card-preview">
-
-                            ${escaparHTML(
-                                previa
-                            )}
-
-                        </p>
-
-
-                        <div class="redacao-rodape">
-
-
-                            <span class="card-data">
-
-                                ${dataFormatada}
-
-                            </span>
-
-
-                            <button
-
-                                class="btn-ler"
-
-                                type="button"
-
-                            >
-
-                                Ler redação →
-
-                            </button>
-
-
-                        </div>
-
-
-                    </div>
-
-                `;
-
-
-
-                slide
-                    .querySelector(".btn-ler")
-                    .addEventListener(
-
-                        "click",
-
-                        () =>
-                            abrirRedacao(
-                                redacao
-                            )
-
-                    );
-
-
-
-                carrosselTrack.appendChild(
-                    slide
-                );
-
-
-
-                const indicador =
-                    document.createElement(
-                        "button"
-                    );
-
-
-                indicador.className =
-                    "carrossel-indicador";
-
-
-                indicador.type =
-                    "button";
-
-
-                indicador.setAttribute(
-
-                    "aria-label",
-
-                    `Ir para redação ${indice + 1}`
-
-                );
-
-
-
-                indicador.addEventListener(
-
-                    "click",
-
-                    () => {
-
-                        indiceAtual =
-                            indice;
-
-
-                        atualizarCarrossel();
-
-                    }
-
-                );
-
-
-
-                carrosselIndicadores.appendChild(
-                    indicador
-                );
-
-            }
-
-        );
-
-
-
-        if (btnAnterior) {
-
-            btnAnterior.disabled =
-
-                redacoesCarrossel.length <= 1;
-
-        }
-
-
-
-        if (btnProximo) {
-
-            btnProximo.disabled =
-
-                redacoesCarrossel.length <= 1;
-
-        }
-
-
-
-        atualizarCarrossel();
-
-    }
-
-
-
-    // ======================================================
-    // ATUALIZAR CARROSSEL DE REDAÇÕES
-    // ======================================================
-
-    function atualizarCarrossel() {
-
-        if (
-
-            !redacoesCarrossel.length ||
-            !carrosselTrack
-
-        ) {
-
-            return;
-
-        }
-
-
-
-        carrosselTrack.style.transform =
-
-            `translateX(
-                -${indiceAtual * 100}%
-            )`;
-
-
-
-        const indicadores =
-
-            document.querySelectorAll(
-                ".carrossel-indicador"
-            );
-
-
-
-        indicadores.forEach(
-
-            (indicador, indice) => {
-
-                indicador.classList.toggle(
-
-                    "ativo",
-
-                    indice === indiceAtual
-
-                );
-
-            }
-
-        );
-
-
-
-        if (btnAnterior) {
-
-            btnAnterior.disabled =
-
-                indiceAtual === 0;
-
-        }
-
-
-
-        if (btnProximo) {
-
-            btnProximo.disabled =
-
-                indiceAtual ===
-                redacoesCarrossel.length - 1;
-
-        }
-
-    }
-
-
-
-    // ======================================================
-    // BOTÃO ANTERIOR
-    // ======================================================
-
-    btnAnterior?.addEventListener(
-
-        "click",
-
-        () => {
-
-            if (indiceAtual > 0) {
-
-                indiceAtual--;
-
-
-                atualizarCarrossel();
-
-            }
-
-        }
-
-    );
-
-
-
-    // ======================================================
-    // BOTÃO PRÓXIMO
-    // ======================================================
-
-    btnProximo?.addEventListener(
-
-        "click",
-
-        () => {
-
-            if (
-
-                indiceAtual <
-                redacoesCarrossel.length - 1
-
-            ) {
-
-                indiceAtual++;
-
-
-                atualizarCarrossel();
-
-            }
-
-        }
-
-    );
-
-
-
-    // ======================================================
-    // ABRIR REDAÇÃO
-    // ======================================================
-
-    function abrirRedacao(redacao) {
-
-        document
-            .getElementById(
-                "tituloRedacao"
-            )
-            .textContent =
-
-                redacao.titulo ||
-
-                "Sem título";
-
-
-
-        document
-            .getElementById(
-                "textoRedacao"
-            )
-            .textContent =
-
-                redacao.texto ||
-
-                "";
-
-
-
-        document
-            .getElementById(
-                "autorRedacao"
-            )
-            .textContent =
-
-                `Autor: ${
-
-                    redacao.autor ||
-
-                    "Desconhecido"
-
-                }`;
-
-
-
-        abrirModal(
-            modalLeitura
-        );
-
-    }
 
 
 
@@ -2287,8 +1527,6 @@ if (!materia) {
 
     }
 
-
-
     // ======================================================
     // CARREGAR BIOGRAFIAS
     // ======================================================
@@ -2599,8 +1837,6 @@ if (!materia) {
                 )}
 
             </div>
-
-
             <p class="autor-redacao">
 
                 <strong>
@@ -2649,202 +1885,6 @@ if (!materia) {
     }
 
 }
-
-// ======================================================
-// CARROSSEL DE VÍDEOS - SOCIOLOGIA
-// ======================================================
-
-
-const carrosselTrack =
-    document.getElementById("carrosselTrack");
-
-const carrosselIndicadores =
-    document.querySelectorAll(".carrossel-indicador");
-
-const btnAnterior =
-    document.getElementById("btnAnterior");
-
-const btnProximo =
-    document.getElementById("btnProximo");
-
-const slides =
-    document.querySelectorAll(".carrossel-slide");
-
-
-let indiceAtual = 0;
-
-
-// ======================================================
-// ATUALIZAR CARROSSEL
-// ======================================================
-
-function atualizarCarrossel() {
-
-    if (!carrosselTrack || slides.length === 0) {
-        return;
-    }
-
-
-    // Move os slides
-
-    carrosselTrack.style.transform =
-        `translateX(-${indiceAtual * 100}%)`;
-
-
-    // Atualiza indicadores
-
-    carrosselIndicadores.forEach(
-        (indicador, indice) => {
-
-            indicador.classList.toggle(
-                "ativo",
-                indice === indiceAtual
-            );
-
-        }
-    );
-
-
-    // Desabilita botão anterior no primeiro slide
-
-    if (btnAnterior) {
-
-        btnAnterior.disabled =
-            indiceAtual === 0;
-
-    }
-
-
-    // Desabilita botão próximo no último slide
-
-    if (btnProximo) {
-
-        btnProximo.disabled =
-            indiceAtual === slides.length - 1;
-
-    }
-
-}
-
-
-// ======================================================
-// BOTÃO ANTERIOR
-// ======================================================
-
-if (btnAnterior) {
-
-    btnAnterior.addEventListener(
-        "click",
-        () => {
-
-            if (indiceAtual > 0) {
-
-                indiceAtual--;
-
-                atualizarCarrossel();
-
-            }
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// BOTÃO PRÓXIMO
-// ======================================================
-
-if (btnProximo) {
-
-    btnProximo.addEventListener(
-        "click",
-        () => {
-
-            if (
-                indiceAtual <
-                slides.length - 1
-            ) {
-
-                indiceAtual++;
-
-                atualizarCarrossel();
-
-            }
-
-        }
-    );
-
-}
-
-
-// ======================================================
-// INDICADORES
-// ======================================================
-
-carrosselIndicadores.forEach(
-    (indicador, indice) => {
-
-        indicador.addEventListener(
-            "click",
-            () => {
-
-                indiceAtual = indice;
-
-                atualizarCarrossel();
-
-            }
-        );
-
-    }
-);
-
-
-// ======================================================
-// TECLADO
-// ======================================================
-
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (event.key === "ArrowLeft") {
-
-            if (indiceAtual > 0) {
-
-                indiceAtual--;
-
-                atualizarCarrossel();
-
-            }
-
-        }
-
-
-        if (event.key === "ArrowRight") {
-
-            if (
-                indiceAtual <
-                slides.length - 1
-            ) {
-
-                indiceAtual++;
-
-                atualizarCarrossel();
-
-            }
-
-        }
-
-    }
-);
-
-
-// ======================================================
-// INICIAR
-// ======================================================
-
-atualizarCarrossel();
 
 // ======================================================
 // CARROSSEL DE VÍDEOS - SOCIOLOGIA
